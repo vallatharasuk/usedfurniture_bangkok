@@ -1,11 +1,11 @@
-import { address, mapsDirections, mapsSearch, shop } from '../data'
+import { address, hoursFor, mapsDirections, mapsSearch, shop } from '../data'
 import { useI18n, usePageTitle } from '../context'
 import { MapEmbed, PageHero } from '../components'
 
 export default function Showroom() {
   const { lang, t } = useI18n()
-  const hours = lang === 'ar' ? shop.hoursAr : shop.hoursEn
-  usePageTitle(t.showroom.title)
+  const hours = hoursFor(lang)
+  usePageTitle(t.showroom.title, t.seo.showroomDescription)
 
   return (
     <>

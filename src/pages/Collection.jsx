@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router-dom'
-import { categoryIds, formatCount, pieces } from '../data'
+import { categoryIds, formatCount, pieceCopy, pieces } from '../data'
+import { dict } from '../i18n'
 import { useI18n, usePageTitle } from '../context'
 import { Disclaimer, PageHero, PieceCard } from '../components'
 
@@ -9,7 +10,7 @@ export default function Collection() {
   const q = params.get('q') ?? ''
   const cat = params.get('cat') ?? 'all'
   const sort = params.get('sort') ?? 'featured'
-  usePageTitle(t.collection.title)
+  usePageTitle(t.collection.title, t.seo.collectionDescription)
 
   function update(key, value) {
     const next = new URLSearchParams(params)
@@ -22,13 +23,11 @@ export default function Collection() {
     if (cat !== 'all' && piece.category !== cat) return false
     const needle = q.trim().toLowerCase()
     if (!needle) return true
+    const copies = ['en', 'ar', 'bn', 'hi'].map((code) => pieceCopy(piece, code))
     const hay = [
-      piece.en.name,
-      piece.ar.name,
-      piece.en.note,
-      piece.ar.note,
+      ...copies.flatMap((copy) => [copy.name, copy.note]),
       piece.category,
-      t.categories[piece.category],
+      ...Object.values(dict).map((entry) => entry.categories[piece.category]),
       ...piece.tags,
     ]
       .join(' ')
@@ -67,7 +66,7 @@ export default function Collection() {
           <div className="toolbar">
             <div className="chips" role="tablist" aria-label={t.collection.title}>
               <button type="button" className={cat === 'all' ? 'chip on' : 'chip'} onClick={() => update('cat', 'all')}>
-                {lang === 'ar' ? 'الكل' : 'All'}
+                {t.collection.all}
               </button>
               {categoryIds.map((id) => (
                 <button

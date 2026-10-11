@@ -3,7 +3,7 @@ import { useI18n, usePageTitle } from '../context'
 
 export default function NotFound() {
   const { t } = useI18n()
-  usePageTitle(t.notFound.title)
+  usePageTitle(t.notFound.title, t.seo.notFoundDescription, false)
   return (
     <section className="section">
       <div className="wrap page-hero">

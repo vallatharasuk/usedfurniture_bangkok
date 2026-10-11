@@ -7,7 +7,7 @@ import { openWhatsApp } from '../whatsapp'
 export default function Sell() {
   const { t } = useI18n()
   const [sent, setSent] = useState(false)
-  usePageTitle(t.sell.title)
+  usePageTitle(t.sell.title, t.seo.sellDescription)
 
   function onSubmit(event) {
     event.preventDefault()

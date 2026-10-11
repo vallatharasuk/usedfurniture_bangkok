@@ -1,11 +1,11 @@
-import { shop } from '../data'
+import { hoursFor, shop } from '../data'
 import { useI18n, usePageTitle } from '../context'
 import { PageHero } from '../components'
 
 export default function About() {
   const { lang, t } = useI18n()
-  const hours = lang === 'ar' ? shop.hoursAr : shop.hoursEn
-  usePageTitle(t.about.title)
+  const hours = hoursFor(lang)
+  usePageTitle(t.about.title, t.seo.aboutDescription)
   const facts = [
     [t.common.shop, shop.shopNo],
     [t.common.cr, shop.cr],

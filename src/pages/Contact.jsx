@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { address, mapsSearch, shop } from '../data'
+import { address, hoursFor, mapsSearch, shop } from '../data'
 import { useI18n, usePageTitle } from '../context'
 import { MapEmbed, PageHero } from '../components'
 import { openWhatsApp } from '../whatsapp'
@@ -7,8 +7,8 @@ import { openWhatsApp } from '../whatsapp'
 export default function Contact() {
   const { lang, t } = useI18n()
   const [sent, setSent] = useState(false)
-  const hours = lang === 'ar' ? shop.hoursAr : shop.hoursEn
-  usePageTitle(t.contact.title)
+  const hours = hoursFor(lang)
+  usePageTitle(t.contact.title, t.seo.contactDescription)
 
   function onSubmit(event) {
     event.preventDefault()

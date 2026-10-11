@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { formatQar, pieces } from '../data'
+import { formatQar, pieceCopy, pieces } from '../data'
 import { useI18n, usePageTitle } from '../context'
 import { Disclaimer, PieceCard } from '../components'
 import { openWhatsApp } from '../whatsapp'
@@ -14,8 +14,8 @@ export default function Piece() {
 
 function PieceView({ piece }) {
   const { lang, t } = useI18n()
-  const copy = piece[lang]
-  usePageTitle(copy.name)
+  const copy = pieceCopy(piece, lang)
+  usePageTitle(copy.name, t.seo.piece(copy.name, copy.note))
   const same = pieces.filter((item) => item.slug !== piece.slug && item.category === piece.category)
   const more = same.length ? same : pieces.filter((item) => item.slug !== piece.slug).slice(0, 3)
 

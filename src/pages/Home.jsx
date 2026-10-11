@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { address, categoryCovers, categoryIds, mapsSearch, pieces, shop } from '../data'
+import { address, categoryCovers, categoryIds, formatQar, hoursFor, mapsSearch, pieceCopy, pieces, shop } from '../data'
 import { useI18n, usePageTitle } from '../context'
 import { Disclaimer, MapEmbed, Marquee, PieceCard, VideoBackdrop } from '../components'
 
@@ -8,8 +8,13 @@ export default function Home() {
   const { lang, t } = useI18n()
   const navigate = useNavigate()
   const [query, setQuery] = useState('')
-  const hours = lang === 'ar' ? shop.hoursAr : shop.hoursEn
-  usePageTitle('')
+  const hours = hoursFor(lang)
+  const ranges = categoryIds.map((id) => {
+    const prices = pieces.filter((piece) => piece.category === id).map((piece) => piece.price)
+    return { id, min: Math.min(...prices), max: Math.max(...prices) }
+  })
+  const gallery = pieces.filter((piece) => piece.image.includes('/floor-')).slice(0, 8)
+  usePageTitle('', t.seo.homeDescription)
 
   function onSearch(event) {
     event.preventDefault()
@@ -28,7 +33,7 @@ export default function Home() {
             <h1>
               {t.hero.titleLead}
               <br />
-              {t.hero.titleRest}
+              <em>{t.hero.titleRest}</em>
             </h1>
             <p className="lede">{t.hero.lede}</p>
             <div className="hero-actions">
@@ -67,14 +72,13 @@ export default function Home() {
 
       <Marquee />
 
-      <section className="section">
+      <section className="promise">
         <div className="wrap">
-          <div className="section-head">
-            <h2>{t.trustTitle}</h2>
-          </div>
-          <div className="trust-grid">
-            {t.trust.map((item) => (
-              <article className="trust-card" key={item.title}>
+          <h2>{t.trustTitle}</h2>
+          <div className="promise-grid">
+            {t.trust.map((item, index) => (
+              <article key={item.title}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </article>
@@ -84,6 +88,25 @@ export default function Home() {
       </section>
 
       <section className="section alt">
+        <div className="wrap">
+          <div className="section-head">
+            <p className="eyebrow dark">{t.plus.flowEyebrow}</p>
+            <h2>{t.plus.flowTitle}</h2>
+            <p className="lede dark">{t.plus.flowLede}</p>
+          </div>
+          <div className="flow-grid">
+            {t.sell.steps.map((step, index) => (
+              <article className="flow-card" key={step.title}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="wrap">
           <div className="section-head">
             <p className="eyebrow dark">{t.floor.eyebrow}</p>
@@ -129,21 +152,81 @@ export default function Home() {
       </section>
 
       <section className="section alt">
-        <div className="wrap story-grid">
-          <figure className="story-photo">
-            <img src="/images/shop-front.jpg" alt={t.story.photo} />
-            <figcaption>
-              {t.common.shop} {shop.shopNo}
-            </figcaption>
-          </figure>
-          <div>
-            <p className="eyebrow dark">{t.story.eyebrow}</p>
-            <h2>{t.story.title}</h2>
-            <p className="lede dark">{t.story.text}</p>
-            <Link className="btn btn-solid" to="/showroom">
-              {t.story.link}
+        <div className="wrap">
+          <div className="section-head">
+            <p className="eyebrow dark">{t.plus.rangesEyebrow}</p>
+            <h2>{t.plus.rangesTitle}</h2>
+            <p className="lede dark">{t.plus.rangesLede}</p>
+          </div>
+          <div className="range-board">
+            {ranges.map((range) => (
+              <Link className="range-card" key={range.id} to={`/collection?cat=${range.id}`}>
+                <span>{t.categories[range.id]}</span>
+                <strong>
+                  {formatQar(range.min, lang)} – {formatQar(range.max, lang)}
+                </strong>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head split-head">
+            <div>
+              <p className="eyebrow dark">{t.plus.galleryEyebrow}</p>
+              <h2>{t.plus.galleryTitle}</h2>
+            </div>
+            <Link className="btn btn-solid" to="/collection">
+              {t.plus.galleryCta}
             </Link>
           </div>
+          <div className="gallery">
+            {gallery.map((piece) => {
+              const name = pieceCopy(piece, lang).name
+              return (
+                <Link key={piece.slug} to={`/collection/${piece.slug}`}>
+                  <img src={piece.image} alt={name} />
+                  <span>{name}</span>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="locale-band">
+        <div className="wrap">
+          <div className="section-head">
+            <p className="eyebrow">{t.plus.areasEyebrow}</p>
+            <h2>{t.plus.areasTitle}</h2>
+            <p className="lede">{t.plus.areasLede}</p>
+          </div>
+          <div className="place-grid">
+            {t.plus.places.map((place) => (
+              <Link key={place} to="/areas">
+                {place}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="story-stage">
+        <figure className="story-photo">
+          <img src="/images/shop-front.jpg" alt={t.story.photo} />
+          <figcaption>
+            {t.common.shop} {shop.shopNo}
+          </figcaption>
+        </figure>
+        <div className="story-copy">
+          <p className="eyebrow dark">{t.story.eyebrow}</p>
+          <h2>{t.story.title}</h2>
+          <p className="lede dark">{t.story.text}</p>
+          <Link className="btn btn-solid" to="/showroom">
+            {t.story.link}
+          </Link>
         </div>
       </section>
 
@@ -166,7 +249,7 @@ export default function Home() {
             <h2>{t.visit.title}</h2>
             <p className="lede dark">{t.visit.lede}</p>
           </div>
-          <div className="visit-grid">
+          <div className="visit-stage">
             <MapEmbed />
             <div className="address-card">
               <h3>{t.common.address}</h3>
