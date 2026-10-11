@@ -25,10 +25,7 @@ export default function Home() {
   return (
     <>
       <section className="hero landing">
-        <div className="landing-film">
-          <VideoBackdrop />
-        </div>
-        <div className="wrap">
+        <div className="wrap landing-stage">
           <div className="landing-sheet">
             <p className="landing-pin">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -117,6 +114,17 @@ export default function Home() {
                 <strong>{t.ticket.city}</strong>
               </li>
             </ul>
+          </div>
+          <div className="landing-film">
+            <VideoBackdrop />
+            <p className="film-note">
+              <span className="note-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 12.5 10 16.5 18 8" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              {t.trust[0].title} · {t.trust[2].title}
+            </p>
           </div>
         </div>
         <svg className="landing-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">

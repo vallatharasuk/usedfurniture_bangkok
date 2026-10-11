@@ -124,6 +124,8 @@ a { color: inherit; }
 .header.is-clear .head-call:hover { background: var(--paper); }
 .topbar { background: var(--burgundy-deep); color: var(--ivory); font-size: 0.86rem; }
 .topbar-row { min-height: 38px; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+.topbar p { display: flex; align-items: center; gap: 8px; margin: 0; }
+.topbar p svg { width: 16px; height: 16px; flex: none; }
 .topbar a { color: white; text-decoration: none; font-weight: 650; white-space: nowrap; direction: ltr; unicode-bidi: isolate; display: inline-flex; align-items: center; gap: 8px; }
 .topbar a svg { width: 18px; height: 18px; flex: none; }
 .nav { position: relative; }
@@ -1139,10 +1141,18 @@ a { color: inherit; }
   color: var(--ink);
   background: var(--ivory);
 }
+.landing-stage {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 .landing-film {
   position: relative;
-  height: min(58vh, 620px);
-  min-height: 320px;
+  order: -1;
+  height: 320px;
+  min-height: 0;
   overflow: hidden;
   background: #1a0c10 url('/images/floor-white-bed.jpg') center/cover;
 }
@@ -1158,13 +1168,14 @@ a { color: inherit; }
 .landing-sheet {
   position: relative;
   z-index: 2;
-  width: min(760px, 100%);
-  margin: -108px auto 8px;
+  width: min(760px, calc(100% - 32px));
+  margin: -72px auto 8px;
   padding: 28px 28px 22px;
   border-radius: 32px;
   background: #fffdfb;
   box-shadow: 0 22px 50px rgba(76, 16, 34, 0.14);
 }
+.film-note { display: none; }
 .landing-pin {
   display: flex;
   align-items: center;
@@ -1323,4 +1334,111 @@ a { color: inherit; }
 @media (max-width: 360px) {
   .landing .hero-actions .btn svg:not(.arrow) { display: none; }
   .landing .hero-actions .btn { font-size: 0.82rem; padding-inline: 8px; }
+}
+
+@media (min-width: 961px) {
+  .nav-links { gap: 16px; }
+  .nav-panel .menu-call,
+  .nav-panel .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 42px;
+    padding-inline: 14px;
+    white-space: nowrap;
+  }
+  .nav-panel .menu-call {
+    color: var(--burgundy);
+    border-color: rgba(122, 31, 56, 0.4);
+    background: white;
+  }
+  .nav-panel .menu-call svg { width: 16px; height: 16px; }
+  .landing-stage {
+    width: min(1180px, calc(100% - 48px));
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 36px;
+    align-items: stretch;
+    padding: 28px 0 40px;
+  }
+  .landing-sheet {
+    order: 0;
+    width: auto;
+    margin: 0;
+    padding: 12px 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .landing-film {
+    order: 0;
+    height: auto;
+    min-height: 560px;
+    border-radius: 28px;
+    box-shadow: 0 24px 50px rgba(76, 16, 34, 0.12);
+  }
+  .landing-film::after { display: none; }
+  .landing h1 { font-size: clamp(3rem, 3.6vw, 4.35rem); }
+  .landing .hero-actions { width: auto; }
+  .landing .hero-actions .btn { flex: none; white-space: nowrap; }
+  .landing-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 18px;
+    margin-top: 22px;
+  }
+  .landing-facts li,
+  .landing-facts li:nth-child(2) {
+    flex: 1 1 150px;
+    width: auto;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+  .landing-facts li:has(> a) { display: block; flex: 1 1 150px; }
+  .landing-facts li,
+  .landing-facts a {
+    grid-template-columns: 34px minmax(0, max-content);
+    column-gap: 8px;
+    row-gap: 1px;
+    justify-items: start;
+    text-align: start;
+  }
+  .fact-icon { grid-row: 1 / span 2; align-self: center; width: 34px; height: 34px; }
+  .landing-facts small { align-self: end; }
+  .landing-facts strong { align-self: start; font-size: 0.92rem; white-space: nowrap; }
+  .film-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    z-index: 2;
+    inset-inline-end: 16px;
+    bottom: 16px;
+    max-width: calc(100% - 32px);
+    margin: 0;
+    padding: 6px 14px 6px 6px;
+    border-radius: 999px;
+    background: white;
+    color: var(--ink);
+    font-size: 0.92rem;
+    font-weight: 650;
+    box-shadow: 0 10px 24px rgba(22, 19, 16, 0.16);
+  }
+  .note-icon {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #1c7a43;
+    color: white;
+    flex: none;
+  }
+  .note-icon svg { width: 16px; height: 16px; }
+  .landing-wave { display: none; }
 }
