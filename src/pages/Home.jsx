@@ -24,50 +24,104 @@ export default function Home() {
 
   return (
     <>
-      <section className="hero">
-        <VideoBackdrop />
-        <div className="hero-shade" />
-        <div className="wrap hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">{t.hero.eyebrow}</p>
+      <section className="hero landing">
+        <div className="landing-film">
+          <VideoBackdrop />
+        </div>
+        <div className="wrap">
+          <div className="landing-sheet">
+            <p className="landing-pin">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z" fill="none" stroke="currentColor" strokeWidth="1.7" />
+                <circle cx="12" cy="11" r="2.1" fill="currentColor" />
+              </svg>
+              {t.hero.eyebrow}
+            </p>
             <h1>
               {t.hero.titleLead}
-              <br />
               <em>{t.hero.titleRest}</em>
             </h1>
             <p className="lede">{t.hero.lede}</p>
             <div className="hero-actions">
-              <Link className="btn btn-light" to="/collection">
+              <Link className="btn btn-go" to="/collection">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 10.5 12 4l8 6.5V20H4V10.5Z" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+                  <path d="M9 20v-6h6v6" fill="none" stroke="currentColor" strokeWidth="1.7" />
+                </svg>
                 {t.hero.buy}
+                <svg className="arrow" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </Link>
-              <Link className="btn btn-line" to="/sell">
+              <Link className="btn btn-sell" to="/sell">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12.5 4H19v6.5L11 18.5 5.5 13 12.5 4Z" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+                  <circle cx="16.2" cy="7.8" r="1.1" fill="currentColor" />
+                </svg>
                 {t.hero.sell}
+                <svg className="arrow" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </Link>
             </div>
-            <form className="search" onSubmit={onSearch}>
+            <form className="search landing-search" onSubmit={onSearch}>
               <label className="sr-only" htmlFor="floor-search">
                 {t.hero.searchLabel}
               </label>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="6.2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                <path d="M16 16.5 20 20.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+              </svg>
               <input
                 id="floor-search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={t.hero.searchPlaceholder}
               />
-              <button className="btn btn-light" type="submit">
+              <button className="btn btn-solid" type="submit">
                 {t.hero.search}
               </button>
             </form>
+            <ul className="landing-facts">
+              <li>
+                <span className="fact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="1.7" />
+                    <path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  </svg>
+                </span>
+                <small>{t.ticket.open}</small>
+                <strong className="num">{hours}</strong>
+              </li>
+              <li>
+                <a href={`tel:${shop.phoneTel}`}>
+                  <span className="fact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M12 3.4A8.4 8.4 0 0 0 4.6 15.8l-1 4.2 4.3-1.1A8.4 8.4 0 1 0 12 3.4Zm4.4 11.8c-.2.5-1 1-1.5 1-.4 0-.8.1-2.6-.6-2.1-.9-3.5-3-3.6-3.2-.1-.2-.9-1.2-.9-2.3s.6-1.6.8-1.8c.2-.2.4-.3.6-.3h.5c.2 0 .3 0 .5.4.2.5.6 1.8.7 2 0 .1 0 .3-.1.4l-.3.4c-.1.1-.2.3-.1.5.1.3.6 1.1 1.4 1.8.9.8 1.7 1.1 2 .2.1.2.3.2.5.1l.4-.5c.2-.2.3-.2.5-.1l1.8.8c.2.1.3.2.4.4 0 .2 0 .6-.2 1Z" />
+                    </svg>
+                  </span>
+                  <small>{t.ticket.phone}</small>
+                  <strong className="num">{shop.phoneDisplay}</strong>
+                </a>
+              </li>
+              <li className="fact-pickup">
+                <span className="fact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M3 7h11v8H3V7Z" fill="none" stroke="currentColor" strokeWidth="1.7" />
+                    <path d="M14 10h4l3 3v2h-7v-5Z" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+                    <circle cx="7" cy="17.5" r="1.6" fill="none" stroke="currentColor" strokeWidth="1.7" />
+                    <circle cx="17" cy="17.5" r="1.6" fill="none" stroke="currentColor" strokeWidth="1.7" />
+                  </svg>
+                </span>
+                <small>{t.ticket.pickup}</small>
+                <strong>{t.ticket.city}</strong>
+              </li>
+            </ul>
           </div>
-          <aside className="ticket">
-            <span>{t.ticket.open}</span>
-            <strong className="num">{hours}</strong>
-            <span>{t.ticket.phone}</span>
-            <a href={`tel:${shop.phoneTel}`}>{shop.phoneDisplay}</a>
-            <span>{t.ticket.pickup}</span>
-            <b>{t.ticket.city}</b>
-          </aside>
         </div>
+        <svg className="landing-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+          <path fill="#4c1022" d="M0 90h1440V48C1080 96 860 8 720 8S300 96 0 48v42Z" />
+        </svg>
       </section>
 
       <Marquee />

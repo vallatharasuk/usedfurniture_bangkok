@@ -117,7 +117,12 @@ export function Layout() {
         <div className="topbar">
           <div className="wrap topbar-row">
             <p>{t.topbar}</p>
-            <a href={`tel:${shop.phoneTel}`}>{shop.phoneDisplay}</a>
+            <a href={`tel:${shop.phoneTel}`}>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M12 3.1A8.8 8.8 0 0 0 4.3 16.2L3.2 20.8l4.7-1.2A8.8 8.8 0 1 0 12 3.1Zm4.7 12.5c-.2.6-1.1 1.1-1.6 1.1-.4 0-.9.1-2.8-.7-2.3-1-3.8-3.3-3.9-3.4-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4.2.6.7 2 .7 2.1.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4 0 .6-.2l.5-.6c.2-.2.3-.2.5-.1l2 .9c.2.1.4.2.4.4.1.2 0 .7-.2 1.1Z" />
+              </svg>
+              {shop.phoneDisplay}
+            </a>
           </div>
         </div>
         <div className={`nav ${open ? 'nav-open' : ''}`}>
