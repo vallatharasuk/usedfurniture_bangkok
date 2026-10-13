@@ -3,11 +3,11 @@ export const dict = {
     brand: { name: 'Bangkok', line: 'Furniture' },
     seo: {
       homeDescription:
-        'Buy and sell used furniture at Shop 13, New Souq Al Haraj, Doha. Free pickup. WhatsApp 7443 1747. Open daily 9:00 AM–10:00 PM.',
+        'We buy used furniture in Doha for cash. Bangkok Furniture, Shop 13, New Souq Al Haraj. Free pickup, instant offer on WhatsApp 7443 1747. Open daily 9:00 AM–10:00 PM.',
       collectionDescription:
         'Used sofas, beds, wardrobes, tables, appliances, and office furniture on the floor at Shop 13, New Souq Al Haraj, Doha.',
       sellDescription:
-        'Sell used furniture in Doha. Free pickup from Bangkok Furniture, Shop 13, New Souq Al Haraj. WhatsApp 7443 1747.',
+        'Sell used furniture in Doha for cash. Free pickup from Bangkok Furniture, Shop 13, New Souq Al Haraj. WhatsApp 7443 1747.',
       showroomDescription:
         'Visit Shop 13, New Souq Al Haraj, at the start of Al Wakrah Road near Barwa Village, Doha. Open daily 9:00 AM–10:00 PM.',
       aboutDescription:
@@ -26,7 +26,7 @@ export const dict = {
         `${name}. ${note} Shop 13, New Souq Al Haraj, Doha. WhatsApp 7443 1747.`,
     },
     nav: {
-      buy: 'Buy',
+      buy: 'Items',
       sell: 'Sell',
       showroom: 'Showroom',
       about: 'About',
@@ -57,15 +57,15 @@ export const dict = {
       galleryCta: 'Open the full floor',
       servicesPage: {
         eyebrow: 'Services',
-        title: 'Buy, sell, and we collect',
-        lede: 'One shop for a piece you need, a piece you are finished with, and the pickup in between.',
+        title: 'What we buy, and how it works',
+        lede: 'We buy used furniture and appliances in Doha. Photos, a cash offer, free pickup, and payment when we load.',
         items: [
-          { title: 'Buy from the floor', text: 'Sofas, beds, wardrobes, tables, appliances, and office pieces you can see at Shop 13.' },
-          { title: 'Sell to the shop', text: 'Send the type, the area, and photos on WhatsApp. The offer comes back before anyone collects it.' },
-          { title: 'Free pickup', text: 'We collect across Doha and nearby areas, timed around the showroom day.' },
-          { title: 'Appliances we plug in', text: 'Fridges and washers are checked in the shop. Ask the size before you reserve one.' },
-          { title: 'Office furniture', text: 'Desks and chairs for a flat or a staff room that needs to work the same day.' },
-          { title: 'A straight number', text: 'Buying or selling, the price is agreed in the open. Guide prices on this site are a sense of the floor, not a contract.' },
+          { title: 'Bedroom sets', text: 'Beds, mattresses, dressers, and side tables sold together in usable condition.' },
+          { title: 'Sofas', text: 'Fabric and leather seating that is clean and still firm. We collect from your building.' },
+          { title: 'Working appliances', text: 'Refrigerators and washers that cool or spin, with a model we can read.' },
+          { title: 'Dining sets and wardrobes', text: 'Tables, chairs, and cupboards you can empty and hand over the same day.' },
+          { title: 'Brands we see most', text: 'IKEA, Home Centre, Nabco, and Midas are easier to price from a photo.' },
+          { title: 'A clear cash number', text: 'One offer before the truck leaves Shop 13. No extra fees on pickup across Doha.' },
         ],
       },
       areasPage: {
@@ -96,9 +96,9 @@ export const dict = {
     },
     hero: {
       eyebrow: 'Shop 13 · New Souq Al Haraj · Doha',
-      titleLead: 'Buy and sell',
-      titleRest: 'used furniture.',
-      lede: 'Sofas, beds, wardrobes, tables, appliances, and office pieces from our floor in the new souq. Fair prices, free pickup, and a quick reply on WhatsApp.',
+      titleLead: 'We buy used furniture.',
+      titleRest: 'Instant cash.',
+      lede: 'Used furniture and appliances in Doha — bedroom sets, wardrobes, dining, refrigerators, sofas. Free valuation, cash on pickup, anywhere in Doha. Shop 13, New Souq Al Haraj.',
       buy: 'Browse the floor',
       sell: 'Sell to us',
       searchLabel: 'Search the floor',
@@ -185,9 +185,9 @@ export const dict = {
     },
     collection: {
       all: 'All',
-      eyebrow: 'Buy',
-      title: 'The floor',
-      lede: 'Search by piece or browse a section. Then message us to confirm what is at Shop 13 today.',
+      eyebrow: 'Items',
+      title: 'Items we buy',
+      lede: 'Bedroom sets, sofas, dining furniture, wardrobes, appliances, and office pieces we collect across Doha. Message WhatsApp to get a cash offer.',
       empty: 'Nothing matched that search. Try a simpler word, or ask WhatsApp and we will look on the floor.',
       clear: 'Clear search',
       sortLabel: 'Sort',
@@ -201,8 +201,8 @@ export const dict = {
     },
     sell: {
       eyebrow: 'Sell',
-      title: 'Sell your furniture',
-      lede: 'We buy used sofas, beds, wardrobes, tables, appliances, and office furniture in honest, usable condition.',
+      title: 'We buy your furniture',
+      lede: 'We buy used sofas, beds, wardrobes, tables, appliances, and office furniture in honest, usable condition. Cash on pickup across Doha.',
       stepsTitle: 'How pickup works',
       steps: [
         {
@@ -249,8 +249,8 @@ export const dict = {
     },
     about: {
       eyebrow: 'About',
-      title: 'About the shop',
-      lede: 'Bangkok Furniture buys and sells used furniture for homes and offices in Qatar.',
+      title: 'Your trusted furniture buyer in Doha',
+      lede: 'Bangkok Furniture buys used furniture for cash at Shop 13, New Souq Al Haraj. Free pickup across Doha.',
       p1: 'The showroom is Shop 13 in New Souq Al Haraj. People come to furnish a flat quickly, replace one piece, or clear a villa before a move. We would rather give a sofa a second room than see it thrown out.',
       p2: 'Commercial registration 14426/29. The phone on the door is 7443 1747.',
       reuseTitle: 'Reuse, then recycle',
@@ -261,8 +261,8 @@ export const dict = {
     },
     contact: {
       eyebrow: 'Contact',
-      title: 'Talk to the shop',
-      lede: 'Call, WhatsApp, or come to Shop 13. A message is the fastest reply.',
+      title: 'Sell your furniture at New Souq Al Haraj',
+      lede: 'Call or WhatsApp 7443 1747, or visit Shop 13. Send photos for a cash offer.',
       formTitle: 'Send a message',
       name: 'Name',
       phone: 'Phone',
@@ -277,7 +277,7 @@ export const dict = {
       cta: 'Back home',
     },
     footer: {
-      blurb: 'Buy and sell used furniture at Shop 13, New Souq Al Haraj, Doha.',
+      blurb: 'We buy used furniture for cash at Shop 13, New Souq Al Haraj, Doha.',
       visit: 'Visit',
       browse: 'Browse',
       hours: 'Every day 9:00 AM – 10:00 PM',
@@ -293,7 +293,7 @@ export const dict = {
     brand: { name: 'بانكوك', line: 'للمفروشات' },
     seo: {
       homeDescription:
-        'شراء وبيع الأثاث المستعمل في محل ١٣، سوق الحراج الجديد، الدوحة. استلام مجاني. واتساب 7443 1747. مفتوح يوميًا من ٩ صباحًا حتى ١٠ مساءً.',
+        'نشتري الأثاث المستعمل في الدوحة كاش. بانكوك للمفروشات، محل ١٣، سوق الحراج الجديد. استلام مجاني وعرض فوري على واتساب 7443 1747. مفتوح يوميًا من ٩ صباحًا حتى ١٠ مساءً.',
       collectionDescription:
         'أرائك وأسرة وخزائن وطاولات وأجهزة وأثاث مكاتب في محل ١٣، سوق الحراج الجديد، الدوحة.',
       sellDescription:
@@ -311,7 +311,7 @@ export const dict = {
       piece: (name, note) => `${name}. ${note} محل ١٣، سوق الحراج الجديد، الدوحة. واتساب 7443 1747.`,
     },
     nav: {
-      buy: 'اشترِ',
+      buy: 'القطع',
       sell: 'بِع',
       showroom: 'المعرض',
       about: 'عن المحل',
@@ -342,15 +342,15 @@ export const dict = {
       galleryCta: 'افتح كل المعرض',
       servicesPage: {
         eyebrow: 'الخدمات',
-        title: 'اشترِ، بِع، ونحن نستلم',
-        lede: 'محل واحد للقطعة التي تحتاجها، والقطعة التي انتهيت منها، والاستلام بينهما.',
+        title: 'ماذا نشتري وكيف يتم',
+        lede: 'نشتري الأثاث والأجهزة المستعملة في الدوحة. صور، عرض كاش، استلام مجاني، والدفع عند التحميل.',
         items: [
-          { title: 'اشترِ من الأرض', text: 'أرائك وأسرة وخزائن وطاولات وأجهزة وأثاث مكاتب تراها في محل ١٣.' },
-          { title: 'بِع للمحل', text: 'أرسل النوع والمنطقة والصور على واتساب. العرض يصل قبل أن يستلم أحد القطعة.' },
-          { title: 'استلام مجاني', text: 'نستلم في الدوحة والمناطق القريبة، بوقت يناسب يوم المعرض.' },
-          { title: 'أجهزة نجرّبها', text: 'الثلاجات والغسالات تُفحص في المحل. اسأل عن المقاس قبل الحجز.' },
-          { title: 'أثاث المكاتب', text: 'مكاتب وكراسي لشقة أو غرفة موظفين تحتاج أن تعمل في اليوم نفسه.' },
-          { title: 'رقم واضح', text: 'شراء أو بيع، السعر يُتفق عليه بوضوح. أسعار الموقع استرشادية وليست عقدًا.' },
+          { title: 'غرف نوم', text: 'سرير ومرتبة وتسريحة وكومودينو تُباع معًا وبحالة استخدام.' },
+          { title: 'كنب', text: 'قماش أو جلد نظيف وما زال متماسكًا. نستلم من المبنى.' },
+          { title: 'أجهزة تعمل', text: 'ثلاجات وغسالات تبرّد أو تدور، ومعها رقم الموديل.' },
+          { title: 'سفرة وخزائن', text: 'طاولات وكراسي ودواليب يمكن إفراغها وتسليمها في اليوم نفسه.' },
+          { title: 'الماركات الأكثر', text: 'آيكيا وهوم سنتر ونابكو وميداس أسهل في التسعير من الصورة.' },
+          { title: 'رقم كاش واضح', text: 'عرض واحد قبل أن تخرج السيارة من محل ١٣. بلا رسوم إضافية عند الاستلام.' },
         ],
       },
       areasPage: {
@@ -381,9 +381,9 @@ export const dict = {
     },
     hero: {
       eyebrow: 'محل ١٣ · سوق الحراج الجديد · الدوحة',
-      titleLead: 'نشتري ونبيع',
-      titleRest: 'الأثاث المستعمل.',
-      lede: 'أرائك، أسرة، خزائن، طاولات، أجهزة، وأثاث مكاتب من أرض معرضنا في السوق الجديد. سعر عادل، استلام مجاني، ورد سريع على واتساب.',
+      titleLead: 'نشتري الأثاث المستعمل.',
+      titleRest: 'كاش فوري.',
+      lede: 'أثاث وأجهزة مستعملة في الدوحة — غرف نوم، خزائن، سفرة، ثلاجات، كنب. تقييم مجاني وكاش عند الاستلام في كل الدوحة. محل ١٣، سوق الحراج الجديد.',
       buy: 'تصفح المعرض',
       sell: 'بِع لنا',
       searchLabel: 'ابحث في المعرض',
@@ -470,9 +470,9 @@ export const dict = {
     },
     collection: {
       all: 'الكل',
-      eyebrow: 'شراء',
-      title: 'أرض المعرض',
-      lede: 'ابحث عن قطعة أو تصفح قسمًا. ثم راسلنا لنتأكد ماذا في محل ١٣ اليوم.',
+      eyebrow: 'القطع',
+      title: 'قطع نشتريها',
+      lede: 'غرف نوم وكنب وسفرة وخزائن وأجهزة ومكاتب نستلمها في الدوحة. راسل واتساب لعرض نقدي.',
       empty: 'ما في نتيجة لهذا البحث. جرّب كلمة أبسط، أو اسأل واتساب ونبحث في المحل.',
       clear: 'امسح البحث',
       sortLabel: 'ترتيب',
@@ -486,7 +486,7 @@ export const dict = {
     },
     sell: {
       eyebrow: 'بيع',
-      title: 'بِع أثاثك',
+      title: 'نشتري أثاثك',
       lede: 'نشتري الأرائك والأسرة والخزائن والطاولات والأجهزة وأثاث المكاتب إذا كانت بحالة استخدام صادقة.',
       stepsTitle: 'كيف يتم الاستلام',
       steps: [
@@ -534,8 +534,8 @@ export const dict = {
     },
     about: {
       eyebrow: 'عن المحل',
-      title: 'عن المحل',
-      lede: 'بانكوك للمفروشات تشتري وتبيع الأثاث المستعمل للبيوت والمكاتب في قطر.',
+      title: 'مشتري الأثاث الموثوق في الدوحة',
+      lede: 'بانكوك للمفروشات تشتري الأثاث المستعمل كاش في محل ١٣، سوق الحراج الجديد. استلام مجاني في الدوحة.',
       p1: 'المعرض هو محل ١٣ في سوق الحراج الجديد. الناس تجي لتأثيث شقة بسرعة، أو تبديل قطعة، أو إخلاء فيلا قبل الانتقال. نفضّل أن تنتقل الكنبة إلى غرفة ثانية بدل ما تُرمى.',
       p2: 'سجل تجاري ١٤٤٢٦/٢٩. الهاتف على الباب ٧٤٤٣ ١٧٤٧.',
       reuseTitle: 'إعادة استخدام، ثم تدوير',
@@ -546,8 +546,8 @@ export const dict = {
     },
     contact: {
       eyebrow: 'تواصل',
-      title: 'كلّم المحل',
-      lede: 'اتصل، أو واتساب، أو تعال إلى محل ١٣. الرسالة أسرع رد.',
+      title: 'بِع أثاثك في سوق الحراج الجديد',
+      lede: 'اتصل أو واتساب 7443 1747، أو زر محل ١٣. أرسل الصور لعرض نقدي.',
       formTitle: 'أرسل رسالة',
       name: 'الاسم',
       phone: 'الجوال',
@@ -562,7 +562,7 @@ export const dict = {
       cta: 'العودة للرئيسية',
     },
     footer: {
-      blurb: 'نشتري ونبيع الأثاث المستعمل في محل ١٣، سوق الحراج الجديد، الدوحة.',
+      blurb: 'نشتري الأثاث المستعمل كاش في محل ١٣، سوق الحراج الجديد، الدوحة.',
       visit: 'الزيارة',
       browse: 'تصفح',
       hours: 'كل يوم ٩:٠٠ ص – ١٠:٠٠ م',
@@ -577,7 +577,7 @@ export const dict = {
     brand: { name: 'ব্যাংকক', line: 'ফার্নিচার' },
     seo: {
       homeDescription:
-        'দোকান ১৩, নিউ সুক আল হারাজ, দোহায় ব্যবহৃত আসবাব কেনাবেচা। বিনামূল্যে পিকআপ। হোয়াটসঅ্যাপ 7443 1747। প্রতিদিন সকাল ৯টা–রাত ১০টা।',
+        'দোহায় ব্যবহৃত আসবাব নগদে কিনি। ব্যাংকক ফার্নিচার, দোকান ১৩, নিউ সুক আল হারাজ। বিনামূল্যে পিকআপ, হোয়াটসঅ্যাপ 7443 1747-এ তাৎক্ষণিক অফার। প্রতিদিন সকাল ৯টা–রাত ১০টা।',
       collectionDescription:
         'দোকান ১৩, নিউ সুক আল হারাজ, দোহার মেঝেতে সোফা, বিছানা, আলমারি, টেবিল, যন্ত্র ও অফিসের আসবাব।',
       sellDescription:
@@ -596,7 +596,7 @@ export const dict = {
       piece: (name, note) => `${name}. ${note} দোকান ১৩, নিউ সুক আল হারাজ, দোহা। হোয়াটসঅ্যাপ 7443 1747।`,
     },
     nav: {
-      buy: 'কিনুন',
+      buy: 'আইটেম',
       sell: 'বিক্রি',
       showroom: 'শোরুম',
       about: 'আমাদের কথা',
@@ -666,9 +666,9 @@ export const dict = {
     },
     hero: {
       eyebrow: 'দোকান ১৩ · নিউ সুক আল হারাজ · দোহা',
-      titleLead: 'কিনুন ও বিক্রি করুন',
-      titleRest: 'ব্যবহৃত আসবাব।',
-      lede: 'সোফা, বিছানা, আলমারি, টেবিল, গৃহস্থালি যন্ত্র ও অফিসের আসবাব — নতুন সুকের আমাদের মেঝে থেকে। ন্যায্য দাম, বিনামূল্যে পিকআপ, হোয়াটসঅ্যাপে দ্রুত উত্তর।',
+      titleLead: 'আমরা ব্যবহৃত আসবাব কিনি।',
+      titleRest: 'তাৎক্ষণিক নগদ।',
+      lede: 'দোহায় ব্যবহৃত আসবাব ও যন্ত্র — বেডরুম সেট, আলমারি, ডাইনিং, ফ্রিজ, সোফা। ফ্রি মূল্যায়ন, পিকআপে নগদ। দোকান ১৩, নিউ সুক আল হারাজ।',
       buy: 'মেঝে দেখুন',
       sell: 'আমাদের কাছে বিক্রি করুন',
       searchLabel: 'মেঝেতে খুঁজুন',
@@ -755,9 +755,9 @@ export const dict = {
     },
     collection: {
       all: 'সব',
-      eyebrow: 'কিনুন',
-      title: 'মেঝে',
-      lede: 'জিনিসের নামে খুঁজুন বা একটি বিভাগ দেখুন। তারপর আজ দোকান ১৩-এ কী আছে নিশ্চিত করতে মেসেজ করুন।',
+      eyebrow: 'আইটেম',
+      title: 'আমরা যা কিনি',
+      lede: 'বেডরুম, সোফা, ডাইনিং, আলমারি, যন্ত্র ও অফিস — দোহাজুড়ে নিই। নগদ অফারের জন্য হোয়াটসঅ্যাপ করুন।',
       empty: 'এই খোঁজে কিছু মেলেনি। সহজ শব্দ লিখুন, অথবা হোয়াটসঅ্যাপে জিজ্ঞেস করুন, আমরা মেঝে দেখে বলব।',
       clear: 'খোঁজ মুছুন',
       sortLabel: 'সাজান',
@@ -771,7 +771,7 @@ export const dict = {
     },
     sell: {
       eyebrow: 'বিক্রি',
-      title: 'আপনার আসবাব বিক্রি করুন',
+      title: 'আমরা আপনার আসবাব কিনি',
       lede: 'আমরা ভালো, ব্যবহারযোগ্য সোফা, বিছানা, আলমারি, টেবিল, যন্ত্র ও অফিসের আসবাব কিনি।',
       stepsTitle: 'পিকআপ কীভাবে হয়',
       steps: [
@@ -862,7 +862,7 @@ export const dict = {
     brand: { name: 'बैंकॉक', line: 'फ़र्नीचर' },
     seo: {
       homeDescription:
-        'दुकान 13, न्यू सूक अल हराज, दोहा में इस्तेमाल किया फ़र्नीचर खरीदें और बेचें। मुफ़्त पिकअप। व्हाट्सऐप 7443 1747। रोज़ सुबह 9 बजे–रात 10 बजे।',
+        'दोहा में इस्तेमाल किया फ़र्नीचर नकद में खरीदते हैं। बैंकॉक फ़र्नीचर, दुकान 13, न्यू सूक अल हराज। मुफ़्त पिकअप, व्हाट्सऐप 7443 1747 पर तुरंत ऑफ़र। रोज़ सुबह 9 बजे–रात 10 बजे।',
       collectionDescription:
         'दुकान 13, न्यू सूक अल हराज, दोहा की मंज़िल पर सोफ़े, पलंग, अलमारियाँ, मेज़ें, उपकरण और ऑफ़िस फ़र्नीचर।',
       sellDescription:
@@ -881,7 +881,7 @@ export const dict = {
       piece: (name, note) => `${name}. ${note} दुकान 13, न्यू सूक अल हराज, दोहा। व्हाट्सऐप 7443 1747।`,
     },
     nav: {
-      buy: 'खरीदें',
+      buy: 'सामान',
       sell: 'बेचें',
       showroom: 'शोरूम',
       about: 'हमारे बारे में',
@@ -951,9 +951,9 @@ export const dict = {
     },
     hero: {
       eyebrow: 'दुकान 13 · न्यू सूक अल हराज · दोहा',
-      titleLead: 'खरीदें और बेचें',
-      titleRest: 'इस्तेमाल किया फ़र्नीचर।',
-      lede: 'सोफ़ा, पलंग, अलमारी, मेज़, उपकरण और ऑफ़िस का फ़र्नीचर — नए सूक में हमारी मंज़िल से। उचित दाम, मुफ़्त पिकअप, और व्हाट्सऐप पर जल्दी जवाब।',
+      titleLead: 'हम इस्तेमाल किया फ़र्नीचर खरीदते हैं।',
+      titleRest: 'तुरंत नकद।',
+      lede: 'दोहा में इस्तेमाल किया फ़र्नीचर और उपकरण — बेडरूम सेट, अलमारियाँ, डाइनिंग, फ़्रिज, सोफ़े। मुफ़्त वैल्यूएशन, पिकअप पर नकद। दुकान 13, न्यू सूक अल हराज।',
       buy: 'मंज़िल देखें',
       sell: 'हमें बेचें',
       searchLabel: 'मंज़िल पर खोजें',
@@ -1040,9 +1040,9 @@ export const dict = {
     },
     collection: {
       all: 'सभी',
-      eyebrow: 'खरीदें',
-      title: 'मंज़िल',
-      lede: 'सामान के नाम से खोजें या एक खंड देखें। फिर संदेश करें कि आज दुकान 13 में क्या है।',
+      eyebrow: 'सामान',
+      title: 'जो हम खरीदते हैं',
+      lede: 'बेडरूम, सोफ़े, डाइनिंग, अलमारियाँ, उपकरण और ऑफ़िस — पूरे दोहा से लेते हैं. नकद ऑफ़र के लिए व्हाट्सऐप करें।',
       empty: 'इस खोज से कुछ नहीं मिला। आसान शब्द लिखें, या व्हाट्सऐप पर पूछें, हम मंज़िल देखकर बताएँगे।',
       clear: 'खोज मिटाएँ',
       sortLabel: 'क्रम',
@@ -1056,7 +1056,7 @@ export const dict = {
     },
     sell: {
       eyebrow: 'बेचें',
-      title: 'अपना फ़र्नीचर बेचें',
+      title: 'हम आपका फ़र्नीचर खरीदते हैं',
       lede: 'हम अच्छी, चलने लायक हालत के इस्तेमाल किए सोफ़े, पलंग, अलमारियाँ, मेज़ें, उपकरण और ऑफ़िस फ़र्नीचर खरीदते हैं।',
       stepsTitle: 'पिकअप कैसे होता है',
       steps: [

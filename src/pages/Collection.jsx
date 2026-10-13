@@ -2,7 +2,7 @@ import { useSearchParams } from 'react-router-dom'
 import { categoryIds, formatCount, pieceCopy, pieces } from '../data'
 import { dict } from '../i18n'
 import { useI18n, usePageTitle } from '../context'
-import { Disclaimer, PageHero, PieceCard } from '../components'
+import { BuyCta, Disclaimer, PageHero, PieceCard } from '../components'
 
 export default function Collection() {
   const { lang, t } = useI18n()
@@ -44,7 +44,7 @@ export default function Collection() {
 
   return (
     <>
-      <PageHero video eyebrow={t.collection.eyebrow} title={t.collection.title} lede={t.collection.lede} />
+      <PageHero eyebrow={t.collection.eyebrow} title={t.collection.title} lede={t.collection.lede} />
       <section className="section tight">
         <div className="wrap">
           <form
@@ -108,6 +108,7 @@ export default function Collection() {
           <Disclaimer />
         </div>
       </section>
+      <BuyCta />
     </>
   )
 }

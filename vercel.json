@@ -1,5 +1,9 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/showroom", "destination": "/contact", "permanent": true },
+    { "source": "/collection/:slug", "destination": "/collection", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

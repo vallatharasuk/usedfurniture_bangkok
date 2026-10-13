@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { address, categoryIds, formatQar, mapsDirections, mapsSearch, pieceCopy, shop } from './data'
+import { homeFor } from './homeCopy'
+import { heroPoster, heroVideo } from './media'
 import { useI18n } from './context'
 import { openWhatsApp, waUrl } from './whatsapp'
 
-export function VideoBackdrop({ src = '/video/floor.mp4', poster = '/images/floor-white-bed.jpg' }) {
+export function VideoBackdrop({ src = heroVideo, poster = heroPoster }) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -68,11 +70,8 @@ export function Layout() {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
-  const [elevated, setElevated] = useState(false)
   const langRef = useRef(null)
-  const home = pathname === '/'
   const currentLanguage = languages.find((item) => item.id === lang) ?? languages[0]
-  const clearHeader = home && !elevated && !open
 
   useEffect(() => {
     setOpen(false)
@@ -100,56 +99,23 @@ export function Layout() {
     return () => document.body.classList.remove('menu-lock')
   }, [open])
 
-  useEffect(() => {
-    if (!home) return undefined
-    const onScroll = () => setElevated(window.scrollY > 16)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [home])
-
   return (
     <div className="site">
       <a className="skip" href="#main">
         {t.nav.skip}
       </a>
-      <header className={`header${clearHeader ? ' is-clear' : ''}`}>
-        <div className="topbar">
-          <div className="wrap topbar-row">
-            <p>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 7h11v8H3V7Z" fill="none" stroke="currentColor" strokeWidth="1.7" />
-                <path d="M14 10h4l3 3v2h-7v-5Z" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
-                <circle cx="7" cy="17.5" r="1.6" fill="none" stroke="currentColor" strokeWidth="1.7" />
-                <circle cx="17" cy="17.5" r="1.6" fill="none" stroke="currentColor" strokeWidth="1.7" />
-              </svg>
-              {t.topbar}
-            </p>
-            <a href={`tel:${shop.phoneTel}`}>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor" d="M12 3.1A8.8 8.8 0 0 0 4.3 16.2L3.2 20.8l4.7-1.2A8.8 8.8 0 1 0 12 3.1Zm4.7 12.5c-.2.6-1.1 1.1-1.6 1.1-.4 0-.9.1-2.8-.7-2.3-1-3.8-3.3-3.9-3.4-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4.2.6.7 2 .7 2.1.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4 0 .6-.2l.5-.6c.2-.2.3-.2.5-.1l2 .9c.2.1.4.2.4.4.1.2 0 .7-.2 1.1Z" />
-              </svg>
-              {shop.phoneDisplay}
-            </a>
-          </div>
-        </div>
+      <header className="header">
         <div className={`nav ${open ? 'nav-open' : ''}`}>
           <div className="wrap nav-inner">
             <Logo />
             <div className="nav-panel">
               <p className="menu-note">{t.topbar}</p>
               <nav className="nav-links" aria-label="Primary">
-                <NavLink to="/collection" className={({ isActive }) => navClass(isActive || pathname.startsWith('/collection'))}>
-                  {t.nav.buy}
-                </NavLink>
-                <NavLink to="/sell" className={({ isActive }) => navClass(isActive)}>
-                  {t.nav.sell}
-                </NavLink>
-                <NavLink to="/showroom" className={({ isActive }) => navClass(isActive)}>
-                  {t.nav.showroom}
-                </NavLink>
                 <NavLink to="/services" className={({ isActive }) => navClass(isActive)}>
                   {t.plus.services}
+                </NavLink>
+                <NavLink to="/collection" className={({ isActive }) => navClass(isActive || pathname.startsWith('/collection'))}>
+                  {t.nav.buy}
                 </NavLink>
                 <NavLink to="/about" className={({ isActive }) => navClass(isActive)}>
                   {t.nav.about}
@@ -158,17 +124,23 @@ export function Layout() {
                   {t.nav.contact}
                 </NavLink>
               </nav>
-              <a className="btn btn-line menu-call" href={`tel:${shop.phoneTel}`}>
+              <a className="btn btn-solid menu-call" href={`tel:${shop.phoneTel}`}>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M8 4.6h2.1l1.1 2.8-1.5 1a11.2 11.2 0 0 0 5.9 5.9l1-1.5 2.8 1.1V18a1.8 1.8 0 0 1-2 1.8A14.4 14.4 0 0 1 4.2 6.6 1.8 1.8 0 0 1 8 4.6Z" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
                 </svg>
                 {shop.phoneDisplay}
               </a>
-              <a className="btn btn-wa" href={waUrl(t.waHello)} target="_blank" rel="noreferrer">
+              <a className="btn btn-mint menu-wa" href={waUrl(t.waHello)} target="_blank" rel="noreferrer">
                 {t.nav.whatsapp}
               </a>
             </div>
             <div className="nav-tools">
+              <a className="btn btn-solid head-phone" href={`tel:${shop.phoneTel}`}>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 4.6h2.1l1.1 2.8-1.5 1a11.2 11.2 0 0 0 5.9 5.9l1-1.5 2.8 1.1V18a1.8 1.8 0 0 1-2 1.8A14.4 14.4 0 0 1 4.2 6.6 1.8 1.8 0 0 1 8 4.6Z" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+                </svg>
+                {shop.phoneDisplay}
+              </a>
               <a className="head-call" href={`tel:${shop.phoneTel}`} aria-label={shop.phoneDisplay}>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M8 4.6h2.1l1.1 2.8-1.5 1a11.2 11.2 0 0 0 5.9 5.9l1-1.5 2.8 1.1V18a1.8 1.8 0 0 1-2 1.8A14.4 14.4 0 0 1 4.2 6.6 1.8 1.8 0 0 1 8 4.6Z" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
@@ -320,7 +292,7 @@ export function Layout() {
   )
 }
 
-export function PageHero({ eyebrow, title, lede, video = false, videoSrc, poster }) {
+export function PageHero({ eyebrow, title, lede, video = true, videoSrc = heroVideo, poster = heroPoster }) {
   return (
     <header className={video ? 'page-hero has-video' : 'page-hero'}>
       {video && (
@@ -338,11 +310,33 @@ export function PageHero({ eyebrow, title, lede, video = false, videoSrc, poster
   )
 }
 
+export function BuyCta() {
+  const { lang, t } = useI18n()
+  const h = homeFor(lang)
+  return (
+    <section className="buy-cta">
+      <div className="wrap">
+        <p className="eyebrow">{h.ctaEyebrow}</p>
+        <h2>{h.ctaTitle}</h2>
+        <p>{h.ctaText}</p>
+        <div className="hero-actions">
+          <a className="btn btn-solid" href={`tel:${shop.phoneTel}`}>
+            {h.call}
+          </a>
+          <Link className="btn btn-mint" to="/sell">
+            {h.offer}
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export function PieceCard({ piece }) {
   const { lang, t } = useI18n()
   const copy = pieceCopy(piece, lang)
   return (
-    <Link to={`/collection/${piece.slug}`} className="piece-card">
+    <Link to="/sell" className="piece-card">
       <div className="piece-media">
         <img
           src={piece.image}
@@ -371,15 +365,15 @@ export function MapEmbed() {
   return <iframe className="map-frame" title={t.visit.mapTitle} src={src} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
 }
 
-export function Marquee() {
+export function Marquee({ labels }) {
   const { t } = useI18n()
-  const labels = categoryIds.map((id) => t.categories[id])
+  const items = labels?.length ? labels : categoryIds.map((id) => t.categories[id])
   return (
     <div className="marquee" aria-hidden="true">
       <div className="marquee-track">
         {[0, 1].map((copy) => (
           <div className="marquee-group" key={copy}>
-            {labels.map((label) => (
+            {items.map((label) => (
               <span key={`${copy}-${label}`}>
                 {label}
                 <i>·</i>

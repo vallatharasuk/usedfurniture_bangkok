@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useI18n, usePageTitle } from '../context'
-import { MapEmbed, PageHero } from '../components'
+import { BuyCta, MapEmbed, PageHero } from '../components'
 
 export default function Areas() {
   const { t } = useI18n()
@@ -30,6 +30,7 @@ export default function Areas() {
           </div>
         </div>
       </section>
+      <BuyCta />
     </>
   )
 }

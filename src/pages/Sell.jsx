@@ -1,11 +1,13 @@
 import { useState } from 'react'
-import { categoryIds } from '../data'
+import { categoryIds, shop } from '../data'
+import { homeFor } from '../homeCopy'
 import { useI18n, usePageTitle } from '../context'
-import { PageHero } from '../components'
-import { openWhatsApp } from '../whatsapp'
+import { BuyCta, VideoBackdrop } from '../components'
+import { openWhatsApp, waUrl } from '../whatsapp'
 
 export default function Sell() {
-  const { t } = useI18n()
+  const { lang, t } = useI18n()
+  const h = homeFor(lang)
   const [sent, setSent] = useState(false)
   usePageTitle(t.sell.title, t.seo.sellDescription)
 
@@ -29,25 +31,54 @@ export default function Sell() {
 
   return (
     <>
-      <PageHero eyebrow={t.sell.eyebrow} title={t.sell.title} lede={t.sell.lede} />
+      <section className="buy-hero sell-hero">
+        <VideoBackdrop />
+        <div className="buy-hero-shade" />
+        <div className="buy-hero-copy">
+          <p className="buy-pin">{t.sell.eyebrow}</p>
+          <h1>
+            {t.sell.title}
+            <span className="buy-h1-ar">{h.secondLine}</span>
+          </h1>
+          <p className="lede">{t.sell.lede}</p>
+          <div className="hero-actions">
+            <a className="btn btn-solid" href={`tel:${shop.phoneTel}`}>
+              {h.call}
+            </a>
+            <a className="btn btn-mint" href={waUrl(t.waHello)} target="_blank" rel="noreferrer">
+              {t.nav.whatsapp}
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="section tight">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>{t.sell.stepsTitle}</h2>
+          </div>
+          <div className="why-rail">
+            {h.steps.map((step, index) => (
+              <article className="why-card" key={step.title}>
+                <img src={step.image} alt={step.alt} />
+                <div>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section alt">
         <div className="wrap sell-grid">
           <div>
-            <h2>{t.sell.stepsTitle}</h2>
-            <div className="steps">
-              {t.sell.steps.map((step, index) => (
-                <article key={step.title}>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p>{step.text}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
+            <h2>{t.sell.formTitle}</h2>
+            <p className="lede dark">{t.plus.flowLede}</p>
           </div>
           <form className="form-card" onSubmit={onSubmit}>
-            <h2>{t.sell.formTitle}</h2>
             <div className="form-grid">
               <label>
                 {t.sell.name}
@@ -94,6 +125,7 @@ export default function Sell() {
           </form>
         </div>
       </section>
+      <BuyCta />
     </>
   )
 }

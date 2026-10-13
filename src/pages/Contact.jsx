@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { address, hoursFor, mapsSearch, shop } from '../data'
 import { useI18n, usePageTitle } from '../context'
-import { MapEmbed, PageHero } from '../components'
+import { homeFor } from '../homeCopy'
+import { BuyCta, MapEmbed, PageHero } from '../components'
 import { openWhatsApp } from '../whatsapp'
 
 export default function Contact() {
   const { lang, t } = useI18n()
   const [sent, setSent] = useState(false)
   const hours = hoursFor(lang)
+  const h = homeFor(lang)
   usePageTitle(t.contact.title, t.seo.contactDescription)
 
   function onSubmit(event) {
@@ -74,6 +76,23 @@ export default function Contact() {
           <MapEmbed />
         </div>
       </section>
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <p className="eyebrow dark">{t.plus.flowEyebrow}</p>
+            <h2>{h.faqTitle}</h2>
+          </div>
+          <div className="faq-list">
+            {h.faqs.map((item) => (
+              <details key={item.q}>
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+      <BuyCta />
     </>
   )
 }

@@ -1,7 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { pieces } from '../src/data.js'
 import { dict } from '../src/i18n.js'
 import { siteUrl } from '../src/site.js'
 
@@ -29,12 +28,6 @@ const pages = [
     file: 'sell.html',
     title: `${dict.en.sell.title} · ${brand}`,
     description: dict.en.seo.sellDescription,
-  },
-  {
-    path: '/showroom',
-    file: 'showroom.html',
-    title: `${dict.en.showroom.title} · ${brand}`,
-    description: dict.en.seo.showroomDescription,
   },
   {
     path: '/about',
@@ -72,12 +65,6 @@ const pages = [
     title: `${dict.en.plus.termsPage.title} · ${brand}`,
     description: dict.en.seo.termsDescription,
   },
-  ...pieces.map((piece) => ({
-    path: `/collection/${piece.slug}`,
-    file: join('collection', `${piece.slug}.html`),
-    title: `${piece.en.name} · ${brand}`,
-    description: dict.en.seo.piece(piece.en.name, piece.en.note),
-  })),
 ]
 
 function escapeAttr(value) {
