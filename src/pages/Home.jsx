@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { address, formatQar, hoursFor, mapsSearch, pieces, shop } from '../data'
+import { address, hoursFor, mapsSearch, shop } from '../data'
 import { homeFor } from '../homeCopy'
 import { useI18n, usePageTitle } from '../context'
-import { BuyCta, Disclaimer, MapEmbed, Marquee, VideoBackdrop } from '../components'
+import { BuyCta, BuyShowcase, MapEmbed, Marquee, VideoBackdrop } from '../components'
 import { waUrl } from '../whatsapp'
 
 const offerCats = ['beds', 'sofas', 'tables', 'wardrobes', 'appliances', 'office']
@@ -23,7 +23,7 @@ export default function Home() {
   const { lang, t } = useI18n()
   const h = homeFor(lang)
   const hours = hoursFor(lang)
-  usePageTitle('', t.seo.homeDescription)
+  usePageTitle(t.seo.homeTitle, t.seo.homeDescription)
 
   useEffect(() => {
     const id = 'faq-jsonld'
@@ -42,11 +42,6 @@ export default function Home() {
     if (!script.parentNode) document.head.appendChild(script)
     return () => script.remove()
   }, [h.faqs])
-
-  const ranges = offerCats.map((id) => {
-    const prices = pieces.filter((piece) => piece.category === id).map((piece) => piece.price)
-    return { id, min: Math.min(...prices), max: Math.max(...prices) }
-  })
 
   return (
     <>
@@ -143,26 +138,7 @@ export default function Home() {
             <h2>{h.offersTitle}</h2>
             <p className="lede dark">{h.offersLede}</p>
           </div>
-          <div className="offer-rail">
-            {h.offers.map((offer, index) => {
-              const range = ranges[index]
-              return (
-                <Link className="offer-card" key={offer.title} to={`/collection?cat=${offerCats[index]}`}>
-                  <img src={offer.image} alt="" />
-                  <div>
-                    <h3>{offer.title}</h3>
-                    <p>{offer.text}</p>
-                    {range && (
-                      <strong>
-                        {formatQar(range.min, lang)} – {formatQar(range.max, lang)}
-                      </strong>
-                    )}
-                  </div>
-                </Link>
-              )
-            })}
-          </div>
-          <Disclaimer />
+          <BuyShowcase items={h.offers} cats={offerCats} />
         </div>
       </section>
 

@@ -1,4 +1,2 @@
-// Live origin, with no trailing slash, once a domain is connected.
-// Example: https://usedfurniture.qa
-// Until this is set, canonical links, the sitemap, and absolute share images stay off.
-export const siteUrl = ''
+// Apex redirects to www, so this is the canonical origin. No trailing slash.
+export const siteUrl = 'https://www.usedfurniture.qa'

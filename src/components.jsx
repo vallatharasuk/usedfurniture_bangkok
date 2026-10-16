@@ -390,3 +390,73 @@ export function Disclaimer() {
   const { t } = useI18n()
   return <p className="disclaimer">{t.common.disclaimer}</p>
 }
+
+export function BuyShowcase({ items, cats }) {
+  const { lang } = useI18n()
+  const h = homeFor(lang)
+  const [index, setIndex] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const count = items.length
+
+  useEffect(() => {
+    if (!count || paused) return undefined
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+    const timer = window.setInterval(() => {
+      setIndex((current) => (current + 1) % count)
+    }, 5600)
+    return () => window.clearInterval(timer)
+  }, [count, paused])
+
+  if (!count) return null
+  const item = items[index]
+  const go = (next) => setIndex((next + count) % count)
+
+  return (
+    <div
+      className="buy-show"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={h.offersTitle}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false)
+      }}
+    >
+      <Link className="buy-show-stage" to={`/collection?cat=${cats[index]}`}>
+        <img src={item.image} alt={item.title} />
+      </Link>
+      <div className="buy-show-copy">
+        <p className="eyebrow dark">{String(index + 1).padStart(2, '0')} / {String(count).padStart(2, '0')}</p>
+        <h3>{item.title}</h3>
+        <p>{item.text}</p>
+        <div className="buy-show-actions">
+          <button type="button" onClick={() => go(index - 1)} aria-label={h.prev}>
+            {h.prev}
+          </button>
+          <button type="button" onClick={() => go(index + 1)} aria-label={h.next}>
+            {h.next}
+          </button>
+          <Link to={`/collection?cat=${cats[index]}`}>{h.offer}</Link>
+        </div>
+      </div>
+      <div className="buy-show-film" role="tablist" aria-label={h.offersEyebrow}>
+        {items.map((entry, entryIndex) => (
+          <button
+            key={entry.title}
+            type="button"
+            role="tab"
+            aria-selected={entryIndex === index}
+            aria-label={entry.title}
+            className={entryIndex === index ? 'is-on' : undefined}
+            onClick={() => setIndex(entryIndex)}
+          >
+            <img src={entry.image} alt="" />
+            <span>{entry.title}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}

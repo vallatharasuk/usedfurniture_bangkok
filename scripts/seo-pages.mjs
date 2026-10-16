@@ -14,7 +14,7 @@ const pages = [
   {
     path: '/',
     file: 'index.html',
-    title: `${brand} · New Souq Al Haraj`,
+    title: `${dict.en.seo.homeTitle} · ${brand}`,
     description: dict.en.seo.homeDescription,
   },
   {
@@ -86,7 +86,7 @@ function render(page) {
   html = replaceMeta(html, 'name', 'twitter:title', page.title)
   html = replaceMeta(html, 'name', 'twitter:description', page.description)
   if (!origin) return html
-  const url = `${origin}${page.path === '/' ? '' : page.path}`
+  const url = `${origin}${page.path === '/' ? '/' : page.path}`
   const image = `${origin}/images/shop-front.jpg`
   html = replaceMeta(html, 'property', 'og:image', image)
   html = replaceMeta(html, 'name', 'twitter:image', image)
@@ -107,8 +107,13 @@ for (const page of pages) {
 }
 
 if (origin) {
+  const lastmod = new Date().toISOString().slice(0, 10)
   const locs = pages
-    .map((page) => `  <url><loc>${origin}${page.path === '/' ? '/' : page.path}</loc></url>`)
+    .map((page) => {
+      const loc = `${origin}${page.path === '/' ? '/' : page.path}`
+      const priority = page.path === '/' ? '1.0' : '0.7'
+      return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><priority>${priority}</priority></url>`
+    })
     .join('\n')
   writeFileSync(
     join(dist, 'sitemap.xml'),

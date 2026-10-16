@@ -2,6 +2,8 @@ export const homeCopy = {
   en: {
     secondLine: 'نشتري أثاثك المستعمل. كاش فوري.',
     call: 'Call',
+    prev: 'Previous',
+    next: 'Next',
     offer: 'Get a cash offer',
     mosaicEyebrow: 'From the floor',
     mosaicTitle: 'Furniture we buy in Doha',
@@ -48,7 +50,7 @@ export const homeCopy = {
     offersEyebrow: 'What we buy',
     offersTitle: 'Furniture and appliances in usable condition',
     offersLede:
-      'Bedroom sets, sofas, dining furniture, wardrobes, refrigerators, and office pieces. IKEA, Home Centre, Nabco, and Midas are the names we see most in Doha.',
+      'Bedroom sets, sofas, dining furniture, wardrobes, refrigerators, and office pieces from homes across Qatar. IKEA, Home Centre, Nabco, and Midas are the names we see most.',
     offers: [
       { title: 'Bedroom sets', text: 'Beds, mattresses, dressers, and side tables sold together.', image: '/images/floor-white-bed.jpg', to: '/we-buy-bedroom-sets-doha' },
       { title: 'Sofas', text: 'Fabric and leather seating that is clean and still firm.', image: '/images/sofa-sectional.jpg', to: '/we-buy-sofas-doha' },
@@ -68,6 +70,7 @@ export const homeCopy = {
     ],
     faqTitle: 'Selling used furniture in Doha',
     faqs: [
+      { q: 'Do you buy used furniture in Qatar?', a: 'Yes. Bangkok Furniture buys used furniture in Qatar from Shop 13 in Doha, and collects across the city, including Al Sadd, Lusail, West Bay, The Pearl, Al Rayyan, and Al Wakrah.' },
       { q: 'How do I sell used furniture in Doha?', a: 'WhatsApp photos to 7443 1747, or use the sell form. We reply with a cash offer. If you accept, we collect from your building and pay when we load.' },
       { q: 'Do you pay cash the same day?', a: 'Yes, when the piece matches the photos and you are in Doha or nearby. The offer is agreed before the truck leaves Shop 13.' },
       { q: 'Which areas do you collect from?', a: 'All of Doha, including Al Sadd, Lusail, West Bay, The Pearl, Al Rayyan, and Al Wakrah. The shop is at New Souq Al Haraj, so Al Wakrah Road is the shortest run.' },
@@ -82,6 +85,8 @@ export const homeCopy = {
   ar: {
     secondLine: 'We buy your used furniture. Instant cash.',
     call: 'اتصل',
+    prev: 'السابق',
+    next: 'التالي',
     offer: 'اطلب عرضًا نقديًا',
     mosaicEyebrow: 'من المعرض',
     mosaicTitle: 'أثاث نشتريه في الدوحة',
@@ -125,6 +130,7 @@ export const homeCopy = {
     ],
     faqTitle: 'بيع الأثاث المستعمل في الدوحة',
     faqs: [
+      { q: 'هل تشترون أثاثًا مستعملًا في قطر؟', a: 'نعم. بانكوك للمفروشات تشتري الأثاث المستعمل في قطر من محل ١٣ في الدوحة، ونستلم في كل المدينة، ومنها السد ولوسيل والخليج الغربي واللؤلؤة والريان والوكرة.' },
       { q: 'كيف أبيع أثاثًا مستعملًا في الدوحة؟', a: 'أرسل الصور على واتساب 7443 1747 أو استخدم نموذج البيع. نرد بعرض نقدي، وإذا وافقت نستلم من المبنى وندفع عند التحميل.' },
       { q: 'هل تدفعون كاش في نفس اليوم؟', a: 'نعم، إذا طابقت القطعة الصور وكنت في الدوحة أو قريبًا منها. السعر يُتفق عليه قبل أن تخرج السيارة من محل ١٣.' },
       { q: 'من أي المناطق تستلمون؟', a: 'كل الدوحة، ومنها السد ولوسيل والخليج الغربي واللؤلؤة والريان والوكرة. المحل في سوق الحراج الجديد، لذلك طريق الوكرة هو الأقصر.' },
@@ -139,6 +145,8 @@ export const homeCopy = {
   bn: {
     secondLine: 'نشتري أثاثك المستعمل. كاش فوري.',
     call: 'কল',
+    prev: 'আগের',
+    next: 'পরের',
     offer: 'নগদ অফার নিন',
     mosaicEyebrow: 'মেঝে থেকে',
     mosaicTitle: 'দোহায় আমরা যে আসবাব কিনি',
@@ -182,6 +190,7 @@ export const homeCopy = {
     ],
     faqTitle: 'দোহায় ব্যবহৃত আসবাব বিক্রি',
     faqs: [
+      { q: 'আপনারা কি কাতারে ব্যবহৃত আসবাব কেনেন?', a: 'হ্যাঁ। ব্যাংকক ফার্নিচার দোহার দোকান ১৩ থেকে কাতারে ব্যবহৃত আসবাব কেনে, এবং আল সাদ্দ, লুসাইল, ওয়েস্ট বে, দ্য পার্ল, আল রাইয়ান ও আল ওয়াকরাহসহ শহরজুড়ে পিকআপ করে।' },
       { q: 'দোহায় ব্যবহৃত আসবাব কীভাবে বিক্রি করব?', a: '7443 1747-এ হোয়াটসঅ্যাপে ছবি পাঠান, বা বিক্রির ফর্ম ব্যবহার করুন। আমরা নগদ অফার দিই। রাজি হলে বিল্ডিং থেকে নিই এবং লোডের সময় টাকা দিই।' },
       { q: 'একই দিনে নগদ দেন?', a: 'হ্যাঁ, ছবির সঙ্গে মিললে এবং আপনি দোহা বা কাছাকাছি থাকলে। দোকান ১৩ থেকে গাড়ি বের হওয়ার আগে দাম ঠিক হয়।' },
       { q: 'কোন এলাকা থেকে নেন?', a: 'পুরো দোহা: আল সাদ্দ, লুসাইল, ওয়েস্ট বে, দ্য পার্ল, আল রাইয়ান ও আল ওয়াকরাহ। দোকান নিউ সুক আল হারাজে, তাই আল ওয়াকরাহ রোড সবচেয়ে কাছে।' },
@@ -196,6 +205,8 @@ export const homeCopy = {
   hi: {
     secondLine: 'نشتري أثاثك المستعمل. كاش فوري.',
     call: 'कॉल',
+    prev: 'पिछला',
+    next: 'अगला',
     offer: 'नकद ऑफ़र लें',
     mosaicEyebrow: 'मंज़िल से',
     mosaicTitle: 'दोहा में हम जो फ़र्नीचर खरीदते हैं',
@@ -239,6 +250,7 @@ export const homeCopy = {
     ],
     faqTitle: 'दोहा में इस्तेमाल किया फ़र्नीचर बेचना',
     faqs: [
+      { q: 'क्या आप क़तर में इस्तेमाल किया फ़र्नीचर खरीदते हैं?', a: 'हाँ। बैंकॉक फ़र्नीचर दोहा की दुकान 13 से क़तर में इस्तेमाल किया फ़र्नीचर खरीदता है, और अल सद्द, लुसैल, वेस्ट बे, द पर्ल, अल रय्यान और अल वकराह समेत पूरे शहर से पिकअप करता है।' },
       { q: 'दोहा में इस्तेमाल किया फ़र्नीचर कैसे बेचूँ?', a: '7443 1747 पर व्हाट्सऐप से फ़ोटो भेजें, या बिक्री फ़ॉर्म भरें। हम नकद ऑफ़र देते हैं। मान लें तो इमारत से ले जाते हैं और लोड पर पैसे देते हैं।' },
       { q: 'क्या उसी दिन नकद मिलता है?', a: 'हाँ, जब सामान फ़ोटो से मिले और आप दोहा या आसपास हों। दुकान 13 से गाड़ी निकलने से पहले दाम तय होता है।' },
       { q: 'कौन से इलाक़ों से लेते हैं?', a: 'पूरा दोहा: अल सद्द, लुसैल, वेस्ट बे, द पर्ल, अल रय्यान और अल वकराह। दुकान न्यू सूक अल हराज में है, इसलिए अल वकराह रोड सबसे छोटी दूरी है।' },
