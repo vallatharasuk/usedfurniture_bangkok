@@ -166,14 +166,14 @@ export default function Home() {
             <h2>{h.casesTitle}</h2>
             <p className="lede dark">{h.casesNote}</p>
           </div>
-          <div className="case-grid">
-            {h.cases.map((item) => (
-              <article className="case-card" key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
+          <SwipeSlides
+            label={h.casesTitle}
+            items={h.cases.map((item, index) => ({
+              ...item,
+              image: ['/images/sofa-ivory.jpg', '/images/floor-white-bed.jpg', '/images/floor-dining.jpg', '/images/shop-front.jpg'][index % 4],
+              alt: item.title,
+            }))}
+          />
         </div>
       </section>
 

@@ -392,30 +392,66 @@ export function Disclaimer() {
 }
 
 export function SwipeSlides({ items, label }) {
+  const trackRef = useRef(null)
+  const dragging = useRef(false)
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track || !items?.length) return undefined
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+    let frame = 0
+    const tick = () => {
+      if (!dragging.current) {
+        track.scrollLeft += 0.7
+        const half = track.scrollWidth / 2
+        if (half > 0 && track.scrollLeft >= half) track.scrollLeft -= half
+      }
+      frame = window.requestAnimationFrame(tick)
+    }
+    frame = window.requestAnimationFrame(tick)
+    return () => window.cancelAnimationFrame(frame)
+  }, [items])
+
   if (!items?.length) return null
+  const loop = [...items, ...items]
   return (
-    <div className="swipe" role="region" aria-roledescription="carousel" aria-label={label}>
-      <div className="swipe-track">
-        {items.map((item, index) => {
+    <div
+      className="swipe"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={label}
+      onPointerDown={() => {
+        dragging.current = true
+      }}
+      onPointerUp={() => {
+        dragging.current = false
+      }}
+      onPointerCancel={() => {
+        dragging.current = false
+      }}
+    >
+      <div className="swipe-track" ref={trackRef}>
+        {loop.map((item, index) => {
           const body = (
             <>
-              <img src={item.image} alt={item.alt || ''} />
+              {item.image ? <img src={item.image} alt="" /> : null}
               <div className="swipe-copy">
-                <span>{String(index + 1).padStart(2, '0')}</span>
+                <span>{String((index % items.length) + 1).padStart(2, '0')}</span>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </div>
             </>
           )
+          const key = `${item.title}-${index}`
           if (item.to) {
             return (
-              <Link className="swipe-slide" to={item.to} key={item.title}>
+              <Link className="swipe-slide" to={item.to} key={key} tabIndex={index >= items.length ? -1 : undefined} aria-hidden={index >= items.length || undefined}>
                 {body}
               </Link>
             )
           }
           return (
-            <article className="swipe-slide" key={item.title}>
+            <article className="swipe-slide" key={key} aria-hidden={index >= items.length || undefined}>
               {body}
             </article>
           )

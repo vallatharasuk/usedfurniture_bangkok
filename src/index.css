@@ -1600,10 +1600,8 @@ a { color: inherit; }
 .swipe { margin-inline: -4px; }
 .swipe-track {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-padding-inline: 4px;
   padding: 4px 4px 16px;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
@@ -1612,13 +1610,11 @@ a { color: inherit; }
 .swipe-track::-webkit-scrollbar { display: none; }
 .swipe-slide {
   position: relative;
-  flex: 0 0 min(78%, 640px);
-  height: min(72vw, 520px);
-  min-height: 420px;
-  border-radius: 28px;
+  flex: 0 0 280px;
+  width: 280px;
+  height: 280px;
+  border-radius: 10px;
   overflow: hidden;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   color: white;
   text-decoration: none;
   background: #10281c;
@@ -1632,22 +1628,30 @@ a { color: inherit; }
   position: absolute;
   inset: auto 0 0 0;
   display: grid;
-  gap: 8px;
-  padding: 72px 22px 22px;
-  background: linear-gradient(transparent, rgba(6, 18, 12, 0.88) 42%);
+  gap: 6px;
+  padding: 56px 14px 14px;
+  background: linear-gradient(transparent, rgba(6, 18, 12, 0.9) 46%);
 }
 .swipe-copy span {
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   background: var(--mint);
   color: #04140c;
   font-weight: 700;
+  font-size: 0.8rem;
 }
-.swipe-copy h3 { font-size: clamp(1.7rem, 3vw, 2.6rem); color: white; }
-.swipe-copy p { color: rgba(255, 255, 255, 0.9); max-width: 34rem; }
+.swipe-copy h3 { font-size: 1.35rem; color: white; }
+.swipe-copy p {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.92rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .case-grid {
   display: grid;
   grid-auto-flow: column;
@@ -1708,6 +1712,6 @@ a { color: inherit; }
   .mosaic figure:nth-child(7) { grid-row: auto; }
   .case-grid { grid-auto-columns: minmax(78vw, 1fr); }
   .why-rail { grid-auto-columns: minmax(78vw, 1fr); }
-  .swipe-slide { flex-basis: 88%; min-height: 460px; height: 78vw; }
+  .swipe-slide { flex-basis: 72vw; width: 72vw; height: 72vw; }
   .intent-grid { grid-template-columns: 1fr; }
 }
