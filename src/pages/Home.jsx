@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { address, hoursFor, mapsSearch, shop } from '../data'
 import { homeFor } from '../homeCopy'
 import { useI18n, usePageTitle } from '../context'
-import { BuyCta, BuyShowcase, MapEmbed, Marquee, VideoBackdrop } from '../components'
+import { BuyCta, MapEmbed, Marquee, SwipeSlides, VideoBackdrop } from '../components'
 import { waUrl } from '../whatsapp'
 
 const offerCats = ['beds', 'sofas', 'tables', 'wardrobes', 'appliances', 'office']
@@ -121,18 +121,7 @@ export default function Home() {
             <h2>{h.whyChooseTitle}</h2>
             <p className="lede dark">{h.whyChooseLede}</p>
           </div>
-          <div className="why-rail">
-            {h.steps.map((step, index) => (
-              <article className="why-card" key={step.title}>
-                <img src={step.image} alt={step.alt} />
-                <div>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <SwipeSlides label={h.whyChooseTitle} items={h.steps} />
         </div>
       </section>
 
@@ -159,7 +148,14 @@ export default function Home() {
             <h2>{h.offersTitle}</h2>
             <p className="lede dark">{h.offersLede}</p>
           </div>
-          <BuyShowcase items={h.offers} cats={offerCats} />
+          <SwipeSlides
+            label={h.offersTitle}
+            items={h.offers.map((offer, index) => ({
+              ...offer,
+              alt: offer.title,
+              to: `/collection?cat=${offerCats[index]}`,
+            }))}
+          />
         </div>
       </section>
 

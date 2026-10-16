@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { shop } from '../data'
 import { homeFor } from '../homeCopy'
 import { useI18n, usePageTitle } from '../context'
-import { BuyCta, PageHero } from '../components'
+import { BuyCta, PageHero, SwipeSlides } from '../components'
 import { waUrl } from '../whatsapp'
 
 export default function Services() {
@@ -38,18 +38,7 @@ export default function Services() {
             <h2>{h.whyChooseTitle}</h2>
             <p className="lede dark">{h.whyChooseLede}</p>
           </div>
-          <div className="why-rail">
-            {h.steps.map((step, index) => (
-              <article className="why-card" key={step.title}>
-                <img src={step.image} alt={step.alt} />
-                <div>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <SwipeSlides label={h.whyChooseTitle} items={h.steps} />
           <div className="hero-actions service-actions">
             <a className="btn btn-solid" href={`tel:${shop.phoneTel}`}>
               {h.call}
