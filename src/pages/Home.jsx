@@ -83,6 +83,27 @@ export default function Home() {
         <Marquee labels={h.ticker} />
       </section>
 
+      <section className="section tight">
+        <div className="wrap">
+          <div className="section-head">
+            <p className="eyebrow dark">{h.intentEyebrow}</p>
+            <h2>{h.intentTitle}</h2>
+          </div>
+          <div className="intent-grid">
+            <Link className="intent-card" to="/sell">
+              <h3>{h.sellPathTitle}</h3>
+              <p>{h.sellPathText}</p>
+              <span>{h.offer}</span>
+            </Link>
+            <Link className="intent-card" to="/collection">
+              <h3>{h.buyPathTitle}</h3>
+              <p>{h.buyPathText}</p>
+              <span>{h.buyPathCta}</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="section why-buy">
         <div className="wrap">
           <div className="why-copy">

@@ -2,9 +2,9 @@ export const dict = {
   en: {
     brand: { name: 'Bangkok', line: 'Furniture' },
     seo: {
-      homeTitle: 'Qatar Used Furniture',
+      homeTitle: 'Used Furniture Qatar',
       homeDescription:
-        'Qatar used furniture bought for cash in Doha. Bangkok Furniture, Shop 13, New Souq Al Haraj. Sofas, beds, wardrobes, free pickup. WhatsApp 7443 1747.',
+        'Used furniture in Qatar. Sell sofas, beds and wardrobes for cash with free pickup in Doha, or buy from Shop 13, New Souq Al Haraj. WhatsApp 7443 1747.',
       collectionDescription:
         'Used furniture in Qatar: sofas, beds, wardrobes, tables, appliances, and office pieces at Shop 13, New Souq Al Haraj, Doha.',
       sellDescription:
@@ -99,7 +99,7 @@ export const dict = {
       eyebrow: 'Shop 13 · New Souq Al Haraj · Doha',
       titleLead: 'We buy used furniture in Qatar.',
       titleRest: 'Instant cash.',
-      lede: 'Qatar used furniture, bought for cash in Doha — bedroom sets, wardrobes, dining, refrigerators, sofas. Free pickup anywhere in Doha. Shop 13, New Souq Al Haraj.',
+      lede: 'Used furniture in Qatar: sell a sofa, bed or wardrobe for cash with free pickup in Doha, or buy from the floor at Shop 13, New Souq Al Haraj.',
       buy: 'Browse the floor',
       sell: 'Sell to us',
       searchLabel: 'Search the floor',
@@ -385,7 +385,7 @@ export const dict = {
       eyebrow: 'محل ١٣ · سوق الحراج الجديد · الدوحة',
       titleLead: 'نشتري الأثاث المستعمل في قطر.',
       titleRest: 'كاش فوري.',
-      lede: 'أثاث مستعمل في قطر، نشتريه كاش في الدوحة — غرف نوم، خزائن، سفرة، ثلاجات، كنب. استلام مجاني في كل الدوحة. محل ١٣، سوق الحراج الجديد.',
+      lede: 'أثاث مستعمل في قطر: بِع كنبة أو سريرًا أو خزانة كاش مع استلام مجاني في الدوحة، أو اشترِ من أرض محل ١٣ في سوق الحراج الجديد.',
       buy: 'تصفح المعرض',
       sell: 'بِع لنا',
       searchLabel: 'ابحث في المعرض',

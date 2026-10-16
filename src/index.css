@@ -1523,6 +1523,24 @@ a { color: inherit; }
   color: white;
 }
 .buy-hero .marquee-group i { color: rgba(255, 255, 255, 0.55); }
+.intent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.intent-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  background: white;
+  border-radius: 28px;
+  padding: 28px;
+  text-decoration: none;
+  min-height: 220px;
+}
+.intent-card h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.intent-card p { color: var(--muted); }
+.intent-card span { margin-top: 8px; font-weight: 700; color: var(--burgundy-deep); }
 .why-buy { background: var(--paper); }
 .why-copy { max-width: 46rem; display: grid; gap: 12px; }
 .why-buy h2 { font-size: clamp(2.4rem, 5vw, 4.4rem); max-width: 16ch; }
@@ -1708,4 +1726,5 @@ a { color: inherit; }
   .buy-show { grid-template-columns: 1fr; }
   .buy-show-stage, .buy-show-stage img { min-height: 280px; }
   .buy-show-film { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .intent-grid { grid-template-columns: 1fr; }
 }
