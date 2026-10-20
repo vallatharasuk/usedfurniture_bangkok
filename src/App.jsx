@@ -1,16 +1,17 @@
-import { useEffect } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { Layout } from './components'
 import Home from './pages/Home'
-import Collection from './pages/Collection'
-import Sell from './pages/Sell'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Services from './pages/Services'
-import Areas from './pages/Areas'
-import Privacy from './pages/Privacy'
-import Terms from './pages/Terms'
-import NotFound from './pages/NotFound'
+
+const Collection = lazy(() => import('./pages/Collection'))
+const Sell = lazy(() => import('./pages/Sell'))
+const About = lazy(() => import('./pages/About'))
+const Contact = lazy(() => import('./pages/Contact'))
+const Services = lazy(() => import('./pages/Services'))
+const Areas = lazy(() => import('./pages/Areas'))
+const Privacy = lazy(() => import('./pages/Privacy'))
+const Terms = lazy(() => import('./pages/Terms'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -24,6 +25,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <Suspense fallback={null}>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
@@ -40,6 +42,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+      </Suspense>
     </>
   )
 }

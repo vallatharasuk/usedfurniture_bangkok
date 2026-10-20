@@ -1,8 +1,10 @@
 import { useSearchParams } from 'react-router-dom'
-import { categoryIds, formatCount, pieceCopy, pieces } from '../data'
+import { categoryIds } from '../data'
+import { formatCount, pieceCopy, pieces } from '../catalog'
 import { dict } from '../i18n'
 import { useI18n, usePageTitle } from '../context'
-import { BuyCta, Disclaimer, PageHero, PieceCard } from '../components'
+import { BuyCta, Disclaimer, PageHero } from '../components'
+import { PieceCard } from '../PieceCard'
 
 export default function Collection() {
   const { lang, t } = useI18n()

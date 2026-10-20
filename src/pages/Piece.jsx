@@ -1,7 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
-import { formatQar, pieceCopy, pieces } from '../data'
+import { formatQar, pieceCopy, pieces } from '../catalog'
 import { useI18n, usePageTitle } from '../context'
-import { Disclaimer, Photo, PieceCard } from '../components'
+import { Disclaimer, Photo } from '../components'
+import { PieceCard } from '../PieceCard'
 import { openWhatsApp } from '../whatsapp'
 import NotFound from './NotFound'
 

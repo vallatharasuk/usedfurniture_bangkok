@@ -1,10 +1,20 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { address, hoursFor, mapsSearch, shop } from '../data'
 import { homeFor } from '../homeCopy'
 import { useI18n, usePageTitle } from '../context'
 import { BuyCta, MapEmbed, Marquee, Photo, SwipeSlides, VideoBackdrop } from '../components'
 import { waUrl } from '../whatsapp'
+
+function useStage(total) {
+  const [stage, setStage] = useState(1)
+  useEffect(() => {
+    if (stage >= total) return undefined
+    const id = window.setTimeout(() => setStage((current) => current + 1), 50)
+    return () => window.clearTimeout(id)
+  }, [stage, total])
+  return stage
+}
 
 const offerCats = ['beds', 'sofas', 'tables', 'wardrobes', 'appliances', 'office']
 
@@ -23,6 +33,7 @@ export default function Home() {
   const { lang, t } = useI18n()
   const h = homeFor(lang)
   const hours = hoursFor(lang)
+  const stage = useStage(6)
   usePageTitle(t.seo.homeTitle, t.seo.homeDescription)
 
   useEffect(() => {
@@ -83,6 +94,8 @@ export default function Home() {
         <Marquee labels={h.ticker} />
       </section>
 
+      {stage >= 2 && (
+      <>
       <section className="section tight">
         <div className="wrap">
           <div className="section-head">
@@ -113,7 +126,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
+      {stage >= 3 && (
       <section className="section tight">
         <div className="wrap">
           <div className="section-head">
@@ -124,7 +140,10 @@ export default function Home() {
           <SwipeSlides label={h.whyChooseTitle} items={h.steps} />
         </div>
       </section>
+      )}
 
+      {stage >= 4 && (
+      <>
       <section className="section">
         <div className="wrap">
           <div className="section-head">
@@ -158,7 +177,10 @@ export default function Home() {
           />
         </div>
       </section>
+      </>
+      )}
 
+      {stage >= 5 && (
       <section className="section">
         <div className="wrap">
           <div className="section-head">
@@ -176,7 +198,10 @@ export default function Home() {
           />
         </div>
       </section>
+      )}
 
+      {stage >= 6 && (
+      <>
       <section className="locale-band">
         <div className="wrap">
           <div className="section-head">
@@ -244,6 +269,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </>
+      )}
     </>
   )
 }

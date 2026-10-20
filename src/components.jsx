@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
-import { address, categoryIds, formatQar, mapsDirections, mapsSearch, pieceCopy, shop } from './data'
+import { address, categoryIds, mapsDirections, mapsSearch, shop } from './data'
 import { homeFor } from './homeCopy'
 import { heroPoster, heroVideo } from './media'
 import { useI18n } from './context'
@@ -69,7 +69,7 @@ export function VideoBackdrop({ src = heroVideo, poster = heroPoster }) {
 export function Logo() {
   const { t } = useI18n()
   return (
-    <Link to="/" className="logo" aria-label={t.footer.rights}>
+    <Link to="/" className="logo">
       <span className="logo-badge">
         <Photo className="logo-mark" src="/images/logo.jpg" alt="" width="52" height="52" />
       </span>
@@ -179,7 +179,6 @@ export function Layout() {
                   className="lang"
                   aria-haspopup="listbox"
                   aria-expanded={langOpen}
-                  aria-label={t.nav.language}
                   onClick={() => setLangOpen((value) => !value)}
                 >
                   <span className="lang-long">{currentLanguage.label}</span>
@@ -308,7 +307,7 @@ export function Layout() {
         </div>
       </footer>
 
-      <button type="button" className="wa-fab" aria-label={`${t.nav.whatsapp} ${shop.phoneDisplay}`} onClick={() => openWhatsApp(t.waHello)}>
+      <button type="button" className="wa-fab" onClick={() => openWhatsApp(t.waHello)}>
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M12 3.1A8.8 8.8 0 0 0 4.3 16.2L3.2 20.8l4.7-1.2A8.8 8.8 0 1 0 12 3.1Zm4.7 12.5c-.2.6-1.1 1.1-1.6 1.1-.4 0-.9.1-2.8-.7-2.3-1-3.8-3.3-3.9-3.4-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4.2.6.7 2 .7 2.1.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4 0 .6-.2l.5-.6c.2-.2.3-.2.5-.1l2 .9c.2.1.4.2.4.4.1.2 0 .7-.2 1.1Z" />
         </svg>
@@ -359,33 +358,6 @@ export function BuyCta() {
   )
 }
 
-export function PieceCard({ piece }) {
-  const { lang, t } = useI18n()
-  const copy = pieceCopy(piece, lang)
-  return (
-    <Link to="/sell" className="piece-card">
-      <div className="piece-media">
-        <Photo
-          src={piece.image}
-          alt={copy.name}
-          loading="lazy"
-          onError={(event) => {
-            event.currentTarget.src = '/images/shop-front.jpg'
-          }}
-        />
-      </div>
-      <div className="piece-meta">
-        <span>
-          {t.categories[piece.category]} · {piece.image.includes('/floor-') ? t.common.fromFloor : t.common.example}
-        </span>
-        <h3>{copy.name}</h3>
-        <strong>{formatQar(piece.price, lang)}</strong>
-        <em>{t.common.guide}</em>
-      </div>
-    </Link>
-  )
-}
-
 export function MapEmbed() {
   const { lang, t } = useI18n()
   const mapLang = { en: 'en', ar: 'ar', bn: 'bn', hi: 'hi' }[lang] || 'en'
@@ -428,7 +400,7 @@ export function SwipeSlides({ items, label }) {
     if (!track || !items?.length) return undefined
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
     let frame = 0
-    let onscreen = true
+    let onscreen = false
     const observer = new IntersectionObserver(([entry]) => {
       onscreen = entry.isIntersecting
     })
@@ -471,7 +443,7 @@ export function SwipeSlides({ items, label }) {
           const body = (
             <>
               {item.image ? (
-                <Photo src={item.image} alt="" loading={index % items.length < 2 ? 'eager' : 'lazy'} width="720" height="720" />
+                <Photo src={item.image} alt="" loading="lazy" width="720" height="720" />
               ) : null}
               <div className="swipe-copy">
                 <span>{String((index % items.length) + 1).padStart(2, '0')}</span>

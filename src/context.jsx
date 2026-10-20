@@ -27,23 +27,6 @@ export function LanguageProvider({ children }) {
     } catch {
       /* private mode */
     }
-    const extraFonts = {
-      ar: 'https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700&display=swap',
-      bn: 'https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap',
-      hi: 'https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap',
-    }
-    const href = extraFonts[lang]
-    const id = 'uf-lang-font'
-    const existing = document.getElementById(id)
-    if (!href) {
-      existing?.remove()
-      return
-    }
-    const link = existing || document.createElement('link')
-    link.id = id
-    link.rel = 'stylesheet'
-    link.href = href
-    if (!existing) document.head.appendChild(link)
   }, [lang])
 
   return <LanguageContext.Provider value={{ lang, setLang }}>{children}</LanguageContext.Provider>
