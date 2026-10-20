@@ -6,21 +6,48 @@ import { heroPoster, heroVideo } from './media'
 import { useI18n } from './context'
 import { openWhatsApp, waUrl } from './whatsapp'
 
+export function Photo({ src, alt = '', ...rest }) {
+  if (!src) return null
+  const webp = src.replace(/\.jpe?g($|\?)/i, '.webp$1')
+  return (
+    <picture>
+      <source srcSet={webp} type="image/webp" />
+      <img src={src} alt={alt} decoding="async" {...rest} />
+    </picture>
+  )
+}
+
 export function VideoBackdrop({ src = heroVideo, poster = heroPoster }) {
   const ref = useRef(null)
+  const [play, setPlay] = useState(false)
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+    if (window.matchMedia('(max-width: 900px)').matches) return undefined
+    const start = () => setPlay(true)
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(start, { timeout: 1800 })
+      return () => window.cancelIdleCallback(id)
+    }
+    const id = window.setTimeout(start, 1200)
+    return () => window.clearTimeout(id)
+  }, [])
+
+  useEffect(() => {
+    if (!play) return undefined
     const video = ref.current
     if (!video) return undefined
-    const play = () => {
+    const start = () => {
       video.playbackRate = 0.8
       const pending = video.play()
       if (pending && typeof pending.catch === 'function') pending.catch(() => {})
     }
-    if (video.readyState >= 2) play()
-    else video.addEventListener('canplay', play, { once: true })
-    return () => video.removeEventListener('canplay', play)
-  }, [src])
+    if (video.readyState >= 2) start()
+    else video.addEventListener('canplay', start, { once: true })
+    return () => video.removeEventListener('canplay', start)
+  }, [play])
+
+  if (!play) return null
 
   return (
     <video
@@ -31,7 +58,7 @@ export function VideoBackdrop({ src = heroVideo, poster = heroPoster }) {
       loop
       playsInline
       poster={poster}
-      preload="auto"
+      preload="none"
       aria-hidden="true"
     >
       <source src={src} type="video/mp4" />
@@ -44,7 +71,7 @@ export function Logo() {
   return (
     <Link to="/" className="logo" aria-label={t.footer.rights}>
       <span className="logo-badge">
-        <img className="logo-mark" src="/images/logo.jpg" alt="" width="52" height="52" />
+        <Photo className="logo-mark" src="/images/logo.jpg" alt="" width="52" height="52" />
       </span>
       <span className="logo-words">
         <strong>{t.brand.name}</strong>
@@ -338,9 +365,10 @@ export function PieceCard({ piece }) {
   return (
     <Link to="/sell" className="piece-card">
       <div className="piece-media">
-        <img
+        <Photo
           src={piece.image}
           alt={copy.name}
+          loading="lazy"
           onError={(event) => {
             event.currentTarget.src = '/images/shop-front.jpg'
           }}
@@ -400,8 +428,13 @@ export function SwipeSlides({ items, label }) {
     if (!track || !items?.length) return undefined
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
     let frame = 0
+    let onscreen = true
+    const observer = new IntersectionObserver(([entry]) => {
+      onscreen = entry.isIntersecting
+    })
+    observer.observe(track)
     const tick = () => {
-      if (!dragging.current) {
+      if (!dragging.current && onscreen) {
         track.scrollLeft += 0.7
         const half = track.scrollWidth / 2
         if (half > 0 && track.scrollLeft >= half) track.scrollLeft -= half
@@ -409,7 +442,10 @@ export function SwipeSlides({ items, label }) {
       frame = window.requestAnimationFrame(tick)
     }
     frame = window.requestAnimationFrame(tick)
-    return () => window.cancelAnimationFrame(frame)
+    return () => {
+      window.cancelAnimationFrame(frame)
+      observer.disconnect()
+    }
   }, [items])
 
   if (!items?.length) return null
@@ -434,7 +470,9 @@ export function SwipeSlides({ items, label }) {
         {loop.map((item, index) => {
           const body = (
             <>
-              {item.image ? <img src={item.image} alt="" /> : null}
+              {item.image ? (
+                <Photo src={item.image} alt="" loading={index % items.length < 2 ? 'eager' : 'lazy'} width="720" height="720" />
+              ) : null}
               <div className="swipe-copy">
                 <span>{String((index % items.length) + 1).padStart(2, '0')}</span>
                 <h3>{item.title}</h3>

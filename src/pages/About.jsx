@@ -1,7 +1,7 @@
 import { hoursFor } from '../data'
 import { homeFor } from '../homeCopy'
 import { useI18n, usePageTitle } from '../context'
-import { BuyCta, PageHero } from '../components'
+import { BuyCta, PageHero, Photo } from '../components'
 
 export default function About() {
   const { lang, t } = useI18n()
@@ -36,7 +36,7 @@ export default function About() {
       <section className="section alt">
         <div className="wrap story-grid">
           <figure className="story-photo">
-            <img src="/images/shop-front.jpg" alt={t.story.photo} />
+            <Photo src="/images/shop-front.jpg" alt={t.story.photo} loading="lazy" />
           </figure>
           <div className="prose">
             <p className="eyebrow dark">{t.about.reuseTitle}</p>

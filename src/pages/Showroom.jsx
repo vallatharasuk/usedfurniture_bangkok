@@ -1,6 +1,6 @@
 import { address, hoursFor, mapsDirections, mapsSearch, shop } from '../data'
 import { useI18n, usePageTitle } from '../context'
-import { MapEmbed, PageHero } from '../components'
+import { MapEmbed, PageHero, Photo } from '../components'
 
 export default function Showroom() {
   const { lang, t } = useI18n()
@@ -12,7 +12,7 @@ export default function Showroom() {
       <PageHero
         video
         videoSrc="/video/floor-suite.mp4"
-        poster="/images/floor-champagne.jpg"
+        poster="/images/floor-champagne.webp"
         eyebrow={t.showroom.eyebrow}
         title={t.showroom.title}
         lede={t.showroom.lede}
@@ -20,7 +20,7 @@ export default function Showroom() {
       <section className="section tight">
         <div className="wrap story-grid">
           <figure className="story-photo">
-            <img src="/images/shop-front.jpg" alt={t.showroom.photo} />
+            <Photo src="/images/shop-front.jpg" alt={t.showroom.photo} loading="lazy" />
           </figure>
           <div>
             <h2>{t.showroom.findTitle}</h2>

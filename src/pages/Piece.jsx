@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { formatQar, pieceCopy, pieces } from '../data'
 import { useI18n, usePageTitle } from '../context'
-import { Disclaimer, PieceCard } from '../components'
+import { Disclaimer, Photo, PieceCard } from '../components'
 import { openWhatsApp } from '../whatsapp'
 import NotFound from './NotFound'
 
@@ -27,7 +27,7 @@ function PieceView({ piece }) {
         </Link>
         <div className="piece-layout">
           <div className="piece-media large">
-            <img src={piece.image} alt={copy.name} />
+            <Photo src={piece.image} alt={copy.name} />
           </div>
           <div className="piece-detail">
             <p className="eyebrow dark">{t.categories[piece.category]}</p>

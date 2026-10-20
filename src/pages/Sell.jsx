@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { categoryIds, shop } from '../data'
 import { homeFor } from '../homeCopy'
 import { useI18n, usePageTitle } from '../context'
-import { BuyCta, VideoBackdrop } from '../components'
+import { BuyCta, Photo, VideoBackdrop } from '../components'
 import { openWhatsApp, waUrl } from '../whatsapp'
 
 export default function Sell() {
@@ -60,7 +60,7 @@ export default function Sell() {
           <div className="why-rail">
             {h.steps.map((step, index) => (
               <article className="why-card" key={step.title}>
-                <img src={step.image} alt={step.alt} />
+                <Photo src={step.image} alt={step.alt} loading="lazy" />
                 <div>
                   <span>{String(index + 1).padStart(2, '0')}</span>
                   <h3>{step.title}</h3>

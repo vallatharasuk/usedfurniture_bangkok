@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { address, hoursFor, mapsSearch, shop } from '../data'
 import { homeFor } from '../homeCopy'
 import { useI18n, usePageTitle } from '../context'
-import { BuyCta, MapEmbed, Marquee, SwipeSlides, VideoBackdrop } from '../components'
+import { BuyCta, MapEmbed, Marquee, Photo, SwipeSlides, VideoBackdrop } from '../components'
 import { waUrl } from '../whatsapp'
 
 const offerCats = ['beds', 'sofas', 'tables', 'wardrobes', 'appliances', 'office']
@@ -134,7 +134,7 @@ export default function Home() {
           <div className="mosaic">
             {mosaic.map((item) => (
               <figure key={item.src}>
-                <img src={item.src} alt={item.alt} />
+                <Photo src={item.src} alt={item.alt} loading="lazy" />
               </figure>
             ))}
           </div>
