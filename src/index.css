@@ -1462,8 +1462,8 @@ a { color: inherit; }
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(90deg, rgba(8, 20, 14, 0.55) 0%, rgba(8, 20, 14, 0.18) 55%, rgba(8, 20, 14, 0.08) 100%),
-    linear-gradient(180deg, rgba(8, 20, 14, 0.12) 0%, rgba(8, 20, 14, 0.45) 100%);
+    linear-gradient(90deg, rgba(8, 20, 14, 0.42) 0%, rgba(8, 20, 14, 0.08) 46%, rgba(8, 20, 14, 0) 72%),
+    linear-gradient(180deg, rgba(8, 20, 14, 0.05) 0%, rgba(8, 20, 14, 0.28) 100%);
 }
 .buy-hero-copy {
   position: relative;
@@ -1479,20 +1479,10 @@ a { color: inherit; }
   margin: 0;
   font-size: 0.88rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.92);
-}
-.buy-hero h1,
-.buy-hero h1 em,
-.buy-hero .buy-h1-ar,
-.buy-hero .buy-pin,
-.buy-hero .lede,
-.buy-hero .buy-stats strong,
-.buy-hero .buy-stats small {
-  background-color: #0c2418;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  padding: 0.04em 0.16em;
-  border-radius: 4px;
+  color: #fff;
+  background: rgba(12, 36, 24, 0.55);
+  border-radius: 999px;
+  padding: 6px 12px;
 }
 .buy-hero h1,
 .buy-hero h1 em,
@@ -1502,7 +1492,7 @@ a { color: inherit; }
   max-width: 11ch;
   font-weight: 500;
   letter-spacing: -0.04em;
-  text-shadow: none;
+  text-shadow: 0 2px 18px rgba(8, 20, 14, 0.45);
 }
 .buy-hero h1 em {
   display: block;
@@ -1530,7 +1520,7 @@ a { color: inherit; }
   color: rgba(255, 255, 255, 0.94);
   max-width: 34rem;
   font-size: 0.98rem;
-  text-shadow: none;
+  text-shadow: 0 1px 10px rgba(8, 20, 14, 0.4);
 }
 .buy-hero .hero-actions { flex: none; }
 .buy-hero .btn-solid,
@@ -1554,8 +1544,9 @@ a { color: inherit; }
   color: white;
   letter-spacing: -0.04em;
   line-height: 1;
+  text-shadow: 0 2px 12px rgba(8, 20, 14, 0.4);
 }
-.buy-stats small { color: #f4fff8; font-size: 0.92rem; }
+.buy-stats small { color: #f4fff8; font-size: 0.92rem; text-shadow: 0 1px 8px rgba(8, 20, 14, 0.45); }
 .buy-hero .marquee {
   position: relative;
   z-index: 1;
